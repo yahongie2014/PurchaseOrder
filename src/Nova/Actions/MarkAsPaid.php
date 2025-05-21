@@ -5,6 +5,7 @@ namespace PurchaseOrder\Nova\Actions;
 use Laravel\Nova\Actions\Action;
 use Laravel\Nova\Fields\ActionFields;
 use Illuminate\Support\Collection;
+use Laravel\Nova\Http\Requests\NovaRequest;
 
 class MarkAsPaid extends Action
 {
@@ -19,7 +20,7 @@ class MarkAsPaid extends Action
         return Action::message('Selected orders marked as paid.');
     }
 
-    public function fields()
+    public function fields(NovaRequest $request)
     {
         return [];
     }
