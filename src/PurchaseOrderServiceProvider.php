@@ -9,7 +9,6 @@ class PurchaseOrderServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->loadMigrationsFrom(__DIR__ . '/migrations');
-        $this->loadModelsForm(__DIR__ . '/Models');
         $this->loadTranslationsFrom(__DIR__ . '/resources/lang', 'purchase-order');
 
         $this->publishes([
