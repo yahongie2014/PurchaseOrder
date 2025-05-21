@@ -12,7 +12,6 @@ return new class extends Migration {
             $table->string('locale');
             $table->string('name');
             $table->text('description')->nullable();
-            $table->unique(['brand_id', 'locale']);
             $table->timestamps();
         });
     }

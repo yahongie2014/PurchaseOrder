@@ -19,7 +19,7 @@ class PurchaseOrderServiceProvider extends ServiceProvider
         ], 'pos-lang');
 
         $this->publishes([
-            __DIR__ . '/migrations' => database_path('migrations'),
+            __DIR__ . '/database/migrations' => database_path('migrations'),
         ], 'pos-migrations');
 
         $this->publishes([
