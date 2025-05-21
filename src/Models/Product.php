@@ -43,6 +43,11 @@ class Product extends Model
         'is_active' => 'boolean',
     ];
 
+    protected static function newFactory()
+    {
+        return \PurchaseOrder\Database\Factories\ProductFactory::new();
+    }
+
     public function category()
     {
         return $this->belongsTo(Category::class);

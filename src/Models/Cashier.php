@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Cashier extends Model
 {
     use HasFactory;
+
     protected $table = 'cashiers';
 
     protected $fillable = [
@@ -17,6 +18,11 @@ class Cashier extends Model
     protected $casts = [
         'last_login_at' => 'datetime',
     ];
+
+    protected static function newFactory()
+    {
+        return \PurchaseOrder\Database\Factories\CashierFactory::new();
+    }
 
     public function orders()
     {

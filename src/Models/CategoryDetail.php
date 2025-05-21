@@ -15,6 +15,11 @@ class CategoryDetail extends Model
         'category_id', 'locale', 'name', 'description'
     ];
 
+    protected static function newFactory()
+    {
+        return \PurchaseOrder\Database\Factories\CategoryDetailFactory::new();
+    }
+
     /**
      * Belongs to the Category.
      */

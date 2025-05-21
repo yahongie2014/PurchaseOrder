@@ -23,6 +23,12 @@ class OrderItem extends Model
         'total_price' => 'float',
     ];
 
+
+    protected static function newFactory()
+    {
+        return \PurchaseOrder\Database\Factories\OrderItemFactory::new();
+    }
+
     public function order()
     {
         return $this->belongsTo(Order::class);

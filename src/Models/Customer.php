@@ -19,6 +19,11 @@ class Customer extends Model
         'email' => 'string',
     ];
 
+    protected static function newFactory()
+    {
+        return \PurchaseOrder\Database\Factories\ProductFactory::new();
+    }
+
     public function orders()
     {
         return $this->hasMany(Order::class);

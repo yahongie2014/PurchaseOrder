@@ -27,6 +27,11 @@ class CurrencyRate extends Model
         'rate' => 'float',
     ];
 
+    protected static function newFactory()
+    {
+        return \PurchaseOrder\Database\Factories\CurrencyRateFactory::new();
+    }
+
     public function products(): HasMany
     {
         return $this->hasMany(Product::class, 'currency_code', 'currency_code');

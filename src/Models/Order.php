@@ -31,6 +31,11 @@ class Order extends Model
         'updated_at' => 'datetime',
     ];
 
+    protected static function newFactory()
+    {
+        return \PurchaseOrder\Database\Factories\OrderFactory::new();
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class);

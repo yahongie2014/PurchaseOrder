@@ -19,6 +19,11 @@ class Category extends Model
         'slug', 'is_active', 'cover_img'
     ];
 
+    protected static function newFactory()
+    {
+        return \PurchaseOrder\Database\Factories\CategoryFactory::new();
+    }
+
     public function details()
     {
         return $this->hasMany(CategoryDetail::class);

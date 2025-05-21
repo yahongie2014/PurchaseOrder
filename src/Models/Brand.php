@@ -15,6 +15,11 @@ class Brand extends Model
         'slug', 'logo', 'is_active'
     ];
 
+    protected static function newFactory()
+    {
+        return \PurchaseOrder\Database\Factories\BrandFactory::new();
+    }
+
     public function details()
     {
         return $this->hasMany(BrandDetail::class);

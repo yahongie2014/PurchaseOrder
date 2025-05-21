@@ -19,4 +19,10 @@ class SyncLog extends Model
         'synced_at' => 'datetime',
         'response_data' => 'array',
     ];
+
+    protected static function newFactory()
+    {
+        return \PurchaseOrder\Database\Factories\SyncLogFactory::new();
+    }
+
 }

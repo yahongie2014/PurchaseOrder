@@ -20,6 +20,11 @@ class ProductImage extends Model
         'position' => 'integer',
     ];
 
+    protected static function newFactory()
+    {
+        return \PurchaseOrder\Database\Factories\ProductImageFactory::new();
+    }
+
     public function product()
     {
         return $this->belongsTo(Product::class);

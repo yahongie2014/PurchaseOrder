@@ -21,6 +21,11 @@ class Payment extends Model
         'paid_at' => 'datetime',
     ];
 
+    protected static function newFactory()
+    {
+        return \PurchaseOrder\Database\Factories\PaymentFactory::new();
+    }
+
     public function order()
     {
         return $this->belongsTo(Order::class);
