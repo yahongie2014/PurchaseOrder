@@ -14,8 +14,8 @@ class OrderItemFactory extends Factory
     public function definition()
     {
         return [
-            'order_id' => \PurchaseOrder\Models\Order::factory(),
-            'product_id' => \PurchaseOrder\Models\Product::factory(),
+            'order_id' => Order::factory(),
+            'product_id' => Product::factory(),
             'product_name' => $this->faker->word(),
             'qty' => $this->faker->numberBetween(1, 10),
             'unit_price' => $this->faker->randomFloat(2, 5, 100),

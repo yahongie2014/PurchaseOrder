@@ -2,8 +2,9 @@
 
 namespace PurchaseOrder\Database\Factories;
 
-use PurchaseOrder\Models\Cashier;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\User;
+use PurchaseOrder\Models\Cashier;
 
 class CashierFactory extends Factory
 {
@@ -13,7 +14,7 @@ class CashierFactory extends Factory
     {
         return [
             'name' => $this->faker->name(),
-            'user_id' => App\Models\User::factory(),
+            'user_id' => User::factory(),
             'is_active' => $this->faker->boolean(90),
             'last_login_at' => $this->faker->dateTimeBetween('-1 year', 'now'),
         ];

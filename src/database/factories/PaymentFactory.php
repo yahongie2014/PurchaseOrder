@@ -13,7 +13,7 @@ class PaymentFactory extends Factory
     public function definition()
     {
         return [
-            'order_id' => \PurchaseOrder\Models\Order::factory(),
+            'order_id' => Order::factory(),
             'method' => $this->faker->randomElement(['cash', 'credit_card', 'paypal']),
             'amount' => $this->faker->randomFloat(2, 10, 1000),
             'reference' => $this->faker->uuid(),

@@ -13,7 +13,7 @@ class ProductDetailFactory extends Factory
     public function definition()
     {
         return [
-            'product_id' => \PurchaseOrder\Models\Product::factory(),
+            'product_id' => Product::factory(),
             'locale' => $this->faker->randomElement(['en', 'ar']),
             'name' => $this->faker->word(),
             'description' => $this->faker->sentence(),
