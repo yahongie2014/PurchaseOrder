@@ -62,7 +62,6 @@ class Product extends Model
         return $this->hasMany(OrderItem::class);
     }
 
-    // تفاصيل المنتج متعددة اللغات
     public function details()
     {
         return $this->hasMany(ProductDetail::class);

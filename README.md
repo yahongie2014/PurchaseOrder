@@ -1,7 +1,7 @@
-
 # PurchaseOrder Laravel Package
 
-A flexible, ready-to-use Point of Sale (POS) and product management package for Laravel, supporting multilingual data, extensible Eloquent models, migrations, API resources, and comprehensive database seeding.
+A flexible, ready-to-use Point of Sale (POS) and product management package for Laravel, supporting multilingual data,
+extensible Eloquent models, migrations, API resources, and comprehensive database seeding.
 
 ---
 
@@ -24,14 +24,15 @@ A flexible, ready-to-use Point of Sale (POS) and product management package for 
    composer require yahongie2014/purchase-order:dev-main
    ```
 
-   > _Note: Ensure your `composer.json` includes the VCS repository and correct minimum-stability if using a GitHub package._
+   > _Note: Ensure your `composer.json` includes the VCS repository and correct minimum-stability if using a GitHub
+   package._
 
 2. **(Optional) Publish migrations, translations, and models**
 
    ```bash
-   php artisan vendor:publish --tag=purchaseorder-migrations
-   php artisan vendor:publish --tag=purchaseorder-lang
-   php artisan vendor:publish --tag=purchaseorder-models
+   php artisan vendor:publish --provider="PurchaseOrder\PurchaseOrderServiceProvider" --tag=purchaseorder-config
+   php artisan vendor:publish --provider="PurchaseOrder\PurchaseOrderServiceProvider" --tag=purchaseorder-migrations
+   php artisan vendor:publish --provider="PurchaseOrder\PurchaseOrderServiceProvider" --tag=purchaseorder-nova
    ```
 
 ---
@@ -43,19 +44,19 @@ A flexible, ready-to-use Point of Sale (POS) and product management package for 
   php artisan migrate
   ```
 
-- **Seed sample data**  
+- **Seed sample data**
   ```bash
   php artisan db:seed --class=PurchaseOrder\Database\Seeders\PurchaseOrderSeeder
   ```
 
-- **Use Eloquent models**  
+- **Use Eloquent models**
   ```php
   use PurchaseOrder\Models\Product;
 
   $products = Product::with(['brand', 'category', 'images'])->get();
   ```
 
-- **Use API Resources in your controllers**  
+- **Use API Resources in your controllers**
   ```php
   use PurchaseOrder\Http\Resources\ProductResource;
 
@@ -72,15 +73,15 @@ A flexible, ready-to-use Point of Sale (POS) and product management package for 
 
 You can publish migrations, language files, and models for customization:
 
-- Migrations:  
+- Migrations:
   ```bash
   php artisan vendor:publish --tag=purchaseorder-migrations
   ```
-- Translations:  
+- Translations:
   ```bash
   php artisan vendor:publish --tag=purchaseorder-lang
   ```
-- Models:  
+- Models:
   ```bash
   php artisan vendor:publish --tag=purchaseorder-models
   ```
