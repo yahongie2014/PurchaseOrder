@@ -11,6 +11,12 @@
       "PurchaseOrder\\": "src/"
     }
   },
+  "repositories": [
+    {
+      "type": "path",
+      "url": "../purchase-order"
+    }
+  ],
   "minimum-stability": "dev",
   "prefer-stable": true
 }
