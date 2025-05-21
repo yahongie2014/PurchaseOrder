@@ -14,7 +14,6 @@ class PurchaseOrderServiceProvider extends ServiceProvider
         $this->loadMigrationsFrom(__DIR__ . '/migrations');
         $this->loadTranslationsFrom(__DIR__ . '/resources/lang', 'pos');
 
-        // تحميل الراوتس من المسار المنشور إذا متاح، وإلا من المسار الافتراضي داخل الحزمة
         $publishedRoutesPath = base_path('routes/vendor/purchaseorder/web.php');
         if (file_exists($publishedRoutesPath)) {
             $this->loadRoutesFrom($publishedRoutesPath);
@@ -74,19 +73,19 @@ class PurchaseOrderServiceProvider extends ServiceProvider
             ], 'pos-nova');
 
             Nova::resources([
-                \PurchaseOrder\Nova\Product::class,
-                \PurchaseOrder\Nova\Brand::class,
-                \PurchaseOrder\Nova\BrandDetail::class,
-                \PurchaseOrder\Nova\Category::class,
-                \PurchaseOrder\Nova\CategoryDetail::class,
-                \PurchaseOrder\Nova\Cashier::class,
-                \PurchaseOrder\Nova\Customer::class,
-                \PurchaseOrder\Nova\Order::class,
-                \PurchaseOrder\Nova\OrderItem::class,
-                \PurchaseOrder\Nova\Payment::class,
-                \PurchaseOrder\Nova\ProductImage::class,
-                \PurchaseOrder\Nova\SyncLog::class,
-                \PurchaseOrder\Nova\CurrencyRate::class,
+                \App\Nova\PurchaseOrder\PurchaseOrder\Product::class,
+                \App\Nova\PurchaseOrder\Brand::class,
+                \App\Nova\PurchaseOrder\BrandDetail::class,
+                \App\Nova\PurchaseOrder\Category::class,
+                \App\Nova\PurchaseOrder\CategoryDetail::class,
+                \App\Nova\PurchaseOrder\Cashier::class,
+                \App\Nova\PurchaseOrder\Customer::class,
+                \App\Nova\PurchaseOrder\Order::class,
+                \App\Nova\PurchaseOrder\OrderItem::class,
+                \App\Nova\PurchaseOrder\Payment::class,
+                \App\Nova\PurchaseOrder\ProductImage::class,
+                \App\Nova\PurchaseOrder\SyncLog::class,
+                \App\Nova\PurchaseOrder\CurrencyRate::class,
             ]);
         }
 
