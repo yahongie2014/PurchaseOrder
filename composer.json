@@ -6,7 +6,7 @@
   "require": {
     "php": ">=7.4 <8.5",
     "spatie/laravel-translatable": "^6.0",
-	"epartment/nova-dependency-container": "^1.3",
+    "epartment/nova-dependency-container": "^1.3",
     "mrmonat/nova-translatable": "^1.0"
   },
   "autoload": {
@@ -14,12 +14,6 @@
       "PurchaseOrder\\": "src/"
     }
   },
-  "repositories": [
-    {
-      "type": "path",
-      "url": "../purchase-order"
-    }
-  ],
   "extra": {
     "laravel": {
       "providers": [
