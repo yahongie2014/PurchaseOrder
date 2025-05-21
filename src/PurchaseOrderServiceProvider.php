@@ -68,6 +68,14 @@ class PurchaseOrderServiceProvider extends ServiceProvider
                 \PurchaseOrder\Nova\CurrencyRate::class,
             ]);
         }
+        $this->publishes([
+            __DIR__ . '/../config/purchaseorder.php' => config_path('purchaseorder.php'),
+            __DIR__ . '/../database/migrations' => database_path('migrations'),
+            __DIR__ . '/../database/factories' => database_path('factories'),
+            __DIR__ . '/../database/seeders' => database_path('seeders'),
+            __DIR__ . '/../resources/lang' => resource_path('lang/vendor/purchase-order'),
+            __DIR__ . '/Models' => app_path('Models/PurchaseOrder'),
+        ], 'purchaseorder-all');
     }
 
     public function register(): void
