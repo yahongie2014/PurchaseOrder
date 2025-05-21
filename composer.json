@@ -4,7 +4,8 @@
   "type": "library",
   "license": "MIT",
   "require": {
-    "php": ">=7.4 <8.5"
+    "php": ">=7.4 <8.5",
+    "spatie/laravel-translatable": "^6.0"
   },
   "autoload": {
     "psr-4": {
