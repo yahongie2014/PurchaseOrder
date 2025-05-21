@@ -94,4 +94,10 @@ class Product extends Model
         return $this->getConvertedPrice($this->sale_price, $currency);
     }
 
+    public function currencyRate(): BelongsTo
+    {
+        return $this->belongsTo(CurrencyRate::class, 'currency_code', 'currency_code');
+    }
+
+
 }

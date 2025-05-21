@@ -5,24 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b2f46304-9ea3-450f-8255-998003411b19" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/PurchaseOrder.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Http/Resources/BrandDetailResource.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Http/Resources/BrandResource.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Http/Resources/CashierResource.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Http/Resources/CategoryDetailResource.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Http/Resources/CategoryResource.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Http/Resources/CustomerResource.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Http/Resources/OrderItemResource.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Http/Resources/OrderResource.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Http/Resources/PaymentResource.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Http/Resources/ProductImageResource.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Http/Resources/ProductResource.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Http/Resources/SyncLogResource.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/config/purchaseorder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Models/CurrencyRate.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/migrations/2024_01_01_00146000_create_currency_rates.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/PurchaseOrder.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/PurchaseOrder.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeception.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeception.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PurchaseOrderServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PurchaseOrderServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/phpspec.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/phpspec.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +27,11 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="C:\laragon\bin\php\php-7.3.15-Win32-VC15-x64\php.exe" />
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="C:\laragon\bin\php\php-7.3.15-Win32-VC15-x64\php.exe">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/composer" />
+    </include_path>
+  </component>
   <component name="ProjectId" id="2xNvIDYFxFqYlvC9Lc3OaJeBc5d" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -76,7 +68,7 @@
       <updated>1747791264483</updated>
       <workItem from="1747791266266" duration="7033000" />
       <workItem from="1747799766605" duration="605000" />
-      <workItem from="1747804923686" duration="625000" />
+      <workItem from="1747804923686" duration="963000" />
     </task>
     <servers />
   </component>
