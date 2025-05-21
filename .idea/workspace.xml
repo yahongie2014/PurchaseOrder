@@ -5,19 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b2f46304-9ea3-450f-8255-998003411b19" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Models/Brand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/Brand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Models/BrandDetail.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/BrandDetail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Models/Cashier.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/Cashier.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Models/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/Category.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Models/CategoryDetail.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/CategoryDetail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Models/Customer.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/Customer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Models/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/Order.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Models/OrderItem.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/OrderItem.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Models/Payment.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/Payment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Models/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/Product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Models/ProductImage.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/ProductImage.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/migrations/2024_01_01_000700_create_categories_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/migrations/2024_01_01_000700_create_categories_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +54,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1747791264483</updated>
-      <workItem from="1747791266266" duration="3745000" />
+      <workItem from="1747791266266" duration="4182000" />
     </task>
     <servers />
   </component>

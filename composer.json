@@ -17,6 +17,13 @@
       "url": "../purchase-order"
     }
   ],
+  "extra": {
+    "laravel": {
+      "providers": [
+        "PurchaseOrder\\PurchaseOrderServiceProvider"
+      ]
+    }
+  },
   "minimum-stability": "dev",
   "prefer-stable": true
 }
