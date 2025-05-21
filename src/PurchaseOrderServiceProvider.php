@@ -35,6 +35,10 @@ class PurchaseOrderServiceProvider extends ServiceProvider
             __DIR__ . '/database/seeders' => database_path('seeders/PurchaseOrder'),
         ], 'pos-seeders');
 
+        $this->publishes([
+            __DIR__ . '/database/factories' => database_path('factories/PurchaseOrder'),
+        ], 'pos-factory');
+
         Broadcast::channel(config('purchaseorder.redis.channel_orders'), function ($user) {
             return true;
         });
