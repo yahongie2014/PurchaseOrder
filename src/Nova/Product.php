@@ -15,7 +15,6 @@ use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Illuminate\Http\Request;
-use MrMonat\Translatable\Translatable;
 
 class Product extends Resource
 {
