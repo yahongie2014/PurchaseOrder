@@ -2,6 +2,8 @@
 
 namespace App\Nova\PurchaseOrder;
 
+use App\Nova\PurchaseOrder\Actions\ToggleActiveStatus;
+use App\Nova\PurchaseOrder\Filters\IsActiveFilter;
 use Laravel\Nova\Resource;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
@@ -10,12 +12,8 @@ use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Http\Requests\NovaRequest;
-use Whitecube\NovaFlexibleContent\Flexible;
-use PurchaseOrder\Nova\Filters\IsActiveFilter;
-use PurchaseOrder\Nova\Actions\ToggleActiveStatus;
 use Illuminate\Http\Request;
-use Laravel\Nova\Fields\Textarea;
-use OptimistDigital\NovaTranslatable\Translatable;
+use MrMonat\Translatable\Translatable;
 
 class Product extends Resource
 {
@@ -23,16 +21,14 @@ class Product extends Resource
 
     public static $title = 'sku';
 
-    public static $search = ['id', 'sku', 'barcode'];
+    public static $search = ['id', 'sku', 'barcode', 'name->en', 'name->ar',];
 
     public function fields(NovaRequest $request)
     {
         return [
             ID::make()->sortable(),
-            Translatable::make([
-                Text::make('Name')->rules('required'),
-                Textarea::make('Description'),
-            ]),
+            Translatable::make('Name')->singleLine()->rules('required'),
+            Translatable::make('Description')->singleLine()->rules('required'),
             Text::make('SKU')->sortable()->rules('required', 'max:255'),
             Text::make('Barcode')->nullable(),
             Number::make('Original Price')->step(0.01),

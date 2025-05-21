@@ -20,13 +20,9 @@ class CategoryDetail extends Resource
     {
         return [
             ID::make()->sortable(),
-
             BelongsTo::make('Category'),
-
             Text::make('Locale')->rules('required', 'max:10'),
-
             Text::make('Name')->rules('required', 'max:255'),
-
             Text::make('Description')->hideFromIndex(),
         ];
     }

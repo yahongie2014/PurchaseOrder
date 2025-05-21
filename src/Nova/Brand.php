@@ -8,8 +8,7 @@ use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Http\Requests\NovaRequest;
-use Laravel\Nova\Fields\Textarea;
-use Spatie\Translatable\Translatable;
+use MrMonat\Translatable\Translatable;
 
 class Brand extends Resource
 {
@@ -23,10 +22,8 @@ class Brand extends Resource
     {
         return [
             ID::make()->sortable(),
-            Translatable::make([
-                Text::make('Name')->rules('required'),
-                Textarea::make('Description'),
-            ]),
+            Translatable::make('Name')->singleLine()->rules('required'),
+            Translatable::make('Description')->singleLine()->rules('required'),
             Text::make('Slug')->sortable()->rules('required', 'max:255'),
 
             Text::make('Logo')->nullable(),

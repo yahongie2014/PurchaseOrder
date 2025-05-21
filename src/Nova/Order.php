@@ -2,6 +2,10 @@
 
 namespace App\Nova\PurchaseOrder;
 
+use App\Nova\PurchaseOrder\Actions\MarkAsPaid;
+use App\Nova\PurchaseOrder\Filters\PaymentStatusFilter;
+use App\Nova\PurchaseOrder\Metrics\OrdersPerDay;
+use App\Nova\PurchaseOrder\Metrics\PaymentStatusPartition;
 use Laravel\Nova\Resource;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
@@ -13,11 +17,6 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 use Illuminate\Http\Request;
 
 use PurchaseOrder\Models\Order as OrderModel;
-
-use PurchaseOrder\Nova\Filters\PaymentStatusFilter;
-use PurchaseOrder\Nova\Actions\MarkAsPaid;
-use PurchaseOrder\Nova\Metrics\OrdersPerDay;
-use PurchaseOrder\Nova\Metrics\PaymentStatusPartition;
 
 class Order extends Resource
 {
