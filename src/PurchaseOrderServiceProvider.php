@@ -10,13 +10,18 @@ class PurchaseOrderServiceProvider extends ServiceProvider
     {
         $this->loadMigrationsFrom(__DIR__ . '/migrations');
         $this->loadTranslationsFrom(__DIR__ . '/resources/lang', 'purchase-order');
+
         $this->publishes([
             __DIR__ . '/resources/lang' => resource_path('lang/vendor/purchase-order'),
         ], 'lang');
+
+        $this->publishes([
+            __DIR__ . '/migrations' => database_path('migrations'),
+        ], 'migrations');
     }
 
     public function register(): void
     {
-        //
+        // Register bindings or merge configs here if needed
     }
 }
