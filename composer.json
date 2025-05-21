@@ -1,10 +1,11 @@
 {
-  "name": "purchase-order",
-  "description": "Ecommerce purchase order system with Redis integration",
+  "name": "yourvendor/yourproject",
+  "description": "Laravel app using yahongie2014/purchase-order",
   "type": "project",
+  "license": "MIT",
   "require": {
-    "php": ">=7.5 <=8.4",
-    "yahongie2014/purchaseorder": "dev-main"
+    "php": ">=7.4 <8.5",
+    "yahongie2014/purchase-order": "dev-main"
   },
   "repositories": [
     {
