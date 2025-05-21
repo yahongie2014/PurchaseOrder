@@ -5,10 +5,11 @@ namespace PurchaseOrder\Models;
 use Spatie\Translatable\HasTranslations;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Category extends Model
 {
-    use HasTranslations;
+    use HasTranslations, HasFactory;
 
     public $translatable = ['name', 'description'];
 

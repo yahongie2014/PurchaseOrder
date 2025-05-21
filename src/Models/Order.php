@@ -4,9 +4,12 @@ namespace PurchaseOrder\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use PurchaseOrder\Events\OrderUpdated;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Order extends Model
 {
+    use HasFactory;
+
     protected $table = 'orders';
 
     protected $dispatchesEvents = [

@@ -3,9 +3,12 @@
 namespace PurchaseOrder\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class SyncLog extends Model
 {
+    use HasFactory;
+
     protected $table = 'sync_logs';
 
     protected $fillable = [

@@ -1,0 +1,14 @@
+<?php
+
+namespace PurchaseOrder\Database\Seeders;
+
+use Illuminate\Database\Seeder;
+use PurchaseOrder\Models\Customer;
+
+class CustomerSeeder extends Seeder
+{
+    public function run()
+    {
+        Customer::factory()->count(50)->create();
+    }
+}

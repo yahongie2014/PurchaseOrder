@@ -2,7 +2,43 @@
 
 A flexible, ready-to-use Point of Sale (POS) and product management package for Laravel, supporting multilingual data,
 extensible Eloquent models, migrations, API resources, and comprehensive database seeding.
-
+````
+PurchaseOrder/
+├── src/
+│   ├── Models/
+│   │   ├── Product.php
+│   │   ├── Order.php
+│   │   ├── Brand.php
+│   │   └── ... (other models)
+│   ├── Nova/
+│   │   ├── Product.php
+│   │   ├── Order.php
+│   │   └── ... (Nova resources)
+│   ├── Http/
+│   │   └── Resources/
+│   │       ├── ProductResource.php
+│   │       └── ... (API resources)
+│   ├── Services/
+│   │   └── CurrencyConverter.php
+│   ├── Events/
+│   │   └── ProductUpdated.php
+│   ├── PurchaseOrderServiceProvider.php
+│   └── config/
+│       └── purchaseorder.php
+├── database/
+│   ├── migrations/
+│   │   └── create_*.php (migration files)
+│   ├── seeders/
+│   │   └── PurchaseOrderDatabaseSeeder.php
+│   └── factories/
+│       └── (model factories)
+├── resources/
+│   └── lang/
+│       └── en/
+│           └── messages.php (translation files)
+├── composer.json
+└── README.md
+````
 ---
 
 ## Features

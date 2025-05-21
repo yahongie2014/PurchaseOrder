@@ -3,9 +3,11 @@
 namespace PurchaseOrder\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Cashier extends Model
 {
+    use HasFactory;
     protected $table = 'cashiers';
 
     protected $fillable = [

@@ -4,6 +4,7 @@ namespace PurchaseOrder\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
  * Class CurrencyRate
@@ -16,6 +17,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  */
 class CurrencyRate extends Model
 {
+    use HasFactory;
+
     protected $table = 'currency_rates';
 
     protected $fillable = ['currency_code', 'rate'];

@@ -8,10 +8,11 @@ use Illuminate\Support\Facades\Storage;
 use PurchaseOrder\Events\ProductUpdated;
 use PurchaseOrder\Services\CurrencyConverter;
 use Spatie\Translatable\HasTranslations;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Product extends Model
 {
-    use HasTranslations;
+    use HasTranslations, HasFactory;
 
     public $translatable = ['name', 'description'];
 
