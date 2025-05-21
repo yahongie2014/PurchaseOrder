@@ -74,4 +74,24 @@ class Product extends Model
     {
         return $this->cover_img ? Storage::url($this->cover_img) : null;
     }
+
+    public function getConvertedPrice(float $price, string $currency): ?float
+    {
+        if ($price === null) {
+            return null;
+        }
+
+        $converter = app(CurrencyConverter::class);
+
+        return $converter->convert($price, $currency);
+    }
+
+    /**
+     * Example accessor: get sale price converted to given currency.
+     */
+    public function getSalePriceInCurrency(string $currency): ?float
+    {
+        return $this->getConvertedPrice($this->sale_price, $currency);
+    }
+
 }

@@ -13,18 +13,30 @@ class PurchaseOrderServiceProvider extends ServiceProvider
 
         $this->publishes([
             __DIR__ . '/resources/lang' => resource_path('lang/vendor/purchase-order'),
-        ], 'lang');
+        ], 'purchaseorder-lang');
 
         $this->publishes([
             __DIR__ . '/migrations' => database_path('migrations'),
-        ], 'Models');
+        ], 'purchaseorder-migrations');
+
         $this->publishes([
             __DIR__ . '/Models' => app_path('Models/PurchaseOrder'),
         ], 'purchaseorder-models');
+
+        // Publish config file
+        $this->publishes([
+            __DIR__ . '/config/purchaseorder.php' => config_path('purchaseorder.php'),
+        ], 'purchaseorder-config');
     }
 
     public function register(): void
     {
-        // Register bindings or merge configs here if needed
+        $this->mergeConfigFrom(
+            __DIR__ . '/config/purchaseorder.php', 'purchaseorder'
+        );
+        $this->app->singleton(\PurchaseOrder\Services\CurrencyConverter::class, function ($app) {
+            return new \PurchaseOrder\Services\CurrencyConverter();
+        });
+
     }
 }

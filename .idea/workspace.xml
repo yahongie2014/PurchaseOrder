@@ -5,9 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b2f46304-9ea3-450f-8255-998003411b19" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/PurchaseOrder.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Http/Resources/BrandDetailResource.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Http/Resources/BrandResource.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Http/Resources/CashierResource.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Http/Resources/CategoryDetailResource.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Http/Resources/CategoryResource.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Http/Resources/CustomerResource.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Http/Resources/OrderItemResource.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Http/Resources/OrderResource.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Http/Resources/PaymentResource.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Http/Resources/ProductImageResource.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Http/Resources/ProductResource.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Http/Resources/SyncLogResource.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/config/purchaseorder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/PurchaseOrder.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/PurchaseOrder.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PurchaseOrderServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PurchaseOrderServiceProvider.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,11 +36,10 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="C:\laragon\bin\php\php-7.3.15-Win32-VC15-x64\php.exe">
-    <include_path>
-      <path value="$PROJECT_DIR$/vendor/composer" />
-    </include_path>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="C:\laragon\bin\php\php-7.3.15-Win32-VC15-x64\php.exe" />
   <component name="ProjectId" id="2xNvIDYFxFqYlvC9Lc3OaJeBc5d" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -35,23 +49,23 @@
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -60,7 +74,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1747791264483</updated>
-      <workItem from="1747791266266" duration="6271000" />
+      <workItem from="1747791266266" duration="7033000" />
+      <workItem from="1747799766605" duration="605000" />
+      <workItem from="1747804923686" duration="625000" />
     </task>
     <servers />
   </component>
