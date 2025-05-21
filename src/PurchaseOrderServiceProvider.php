@@ -12,24 +12,28 @@ class PurchaseOrderServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->loadMigrationsFrom(__DIR__ . '/migrations');
-        $this->loadTranslationsFrom(__DIR__ . '/resources/lang', 'purchase-order');
+        $this->loadTranslationsFrom(__DIR__ . '/resources/lang', 'pos');
 
         $this->publishes([
             __DIR__ . '/resources/lang' => resource_path('lang/vendor/purchase-order'),
-        ], 'purchaseorder-lang');
+        ], 'pos-lang');
 
         $this->publishes([
             __DIR__ . '/migrations' => database_path('migrations'),
-        ], 'purchaseorder-migrations');
+        ], 'pos-migrations');
 
         $this->publishes([
             __DIR__ . '/Models' => app_path('Models/PurchaseOrder'),
-        ], 'purchaseorder-models');
+        ], 'pos-models');
 
         $this->publishes([
             __DIR__ . '/config/purchaseorder.php' => config_path('purchaseorder.php'),
-        ], 'purchaseorder-config');
+        ], 'pos-config');
 
+
+        $this->publishes([
+            __DIR__ . '/../database/seeders' => database_path('seeders/PurchaseOrder'),
+        ], 'pos-seeders');
 
         Broadcast::channel(config('purchaseorder.redis.channel_orders'), function ($user) {
             return true;
@@ -42,7 +46,7 @@ class PurchaseOrderServiceProvider extends ServiceProvider
         if (class_exists(Nova::class)) {
             $this->publishes([
                 __DIR__ . '/Nova' => app_path('Nova/PurchaseOrder'),
-            ], 'purchaseorder-nova');
+            ], 'pos-nova');
 
             Nova::resources([
                 \PurchaseOrder\Nova\Product::class,
