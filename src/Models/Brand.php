@@ -12,6 +12,8 @@ class Brand extends Model
 
     protected $table = 'brands';
 
+    public $translatable = ['name', 'description'];
+
     protected $fillable = [
         'slug', 'logo', 'is_active'
     ];
