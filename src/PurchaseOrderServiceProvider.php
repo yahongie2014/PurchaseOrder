@@ -49,7 +49,7 @@ class PurchaseOrderServiceProvider extends ServiceProvider
 
         if (class_exists(Nova::class)) {
             $this->publishes([
-                __DIR__ . '/Nova' => app_path('Nova/PurchaseOrder'),
+                __DIR__ . '/Nova' => app_path('Nova'),
             ], 'pos-nova');
 
             Nova::resources([
