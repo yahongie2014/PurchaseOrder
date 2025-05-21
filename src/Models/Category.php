@@ -6,11 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Spatie\Translatable\HasTranslations;
-use OptimistDigital\NovaTranslatable\Translatable;
 
 class Category extends Model
 {
-    use HasTranslations, HasFactory, Translatable;
+    use HasTranslations, HasFactory;
 
     public $translatable = ['name', 'description'];
 
