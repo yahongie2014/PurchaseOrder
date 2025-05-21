@@ -11,4 +11,10 @@ return [
         'GBP' => 0.81,
         'EGP' => 30.9
     ],
+
+    'redis' => [
+        'channel_orders' => env('PURCHASEORDER_REDIS_CHANNEL_ORDERS', 'purchaseorder-orders'),
+        'channel_products' => env('PURCHASEORDER_REDIS_CHANNEL_PRODUCTS', 'purchaseorder-products'),
+    ],
+
 ];

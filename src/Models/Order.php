@@ -3,10 +3,15 @@
 namespace PurchaseOrder\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use PurchaseOrder\Events\OrderUpdated;
 
 class Order extends Model
 {
     protected $table = 'orders';
+
+    protected $dispatchesEvents = [
+        'updated' => OrderUpdated::class,
+    ];
 
     protected $fillable = [
         'order_number', 'user_id', 'cashier_id', 'subtotal', 'discount_amount', 'tax_amount',
