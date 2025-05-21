@@ -7,6 +7,8 @@ use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\HasMany;
+use Whitecube\NovaFlexibleContent\Flexible;
+use OptimistDigital\NovaTranslatable\Translatable;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Category extends Resource
@@ -22,6 +24,10 @@ class Category extends Resource
         return [
             ID::make()->sortable(),
 
+            Translatable::make([
+                Text::make('Name')->rules('required'),
+                Textarea::make('Description'),
+            ]),
             Text::make('Slug')->sortable()->rules('required', 'max:255'),
 
             Boolean::make('Is Active'),

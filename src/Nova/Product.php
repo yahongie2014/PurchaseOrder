@@ -10,7 +10,8 @@ use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Http\Requests\NovaRequest;
-
+use Whitecube\NovaFlexibleContent\Flexible;
+use OptimistDigital\NovaTranslatable\Translatable;
 use PurchaseOrder\Nova\Filters\IsActiveFilter;
 use PurchaseOrder\Nova\Actions\ToggleActiveStatus;
 use Illuminate\Http\Request;
@@ -27,7 +28,10 @@ class Product extends Resource
     {
         return [
             ID::make()->sortable(),
-
+            Translatable::make([
+                Text::make('Name')->rules('required'),
+                Textarea::make('Description'),
+            ]),
             Text::make('SKU')->sortable()->rules('required', 'max:255'),
             Text::make('Barcode')->nullable(),
             Number::make('Original Price')->step(0.01),

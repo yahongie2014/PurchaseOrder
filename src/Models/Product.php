@@ -10,6 +10,10 @@ use PurchaseOrder\Services\CurrencyConverter;
 
 class Product extends Model
 {
+    use HasTranslations;
+
+    public $translatable = ['name', 'description'];
+
     protected $table = 'products';
 
     protected $dispatchesEvents = [

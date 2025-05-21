@@ -7,6 +7,10 @@ use Illuminate\Support\Facades\Storage;
 
 class Category extends Model
 {
+    use HasTranslations;
+
+    public $translatable = ['name', 'description'];
+
     protected $table = 'categories';
 
     protected $fillable = [
