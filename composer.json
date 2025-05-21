@@ -1,34 +1,16 @@
 {
   "name": "yahongie2014/purchase-order",
-  "description": "Laravel app using yahongie2014/purchase-order",
-  "type": "project",
+  "description": "Reusable Laravel package",
+  "type": "library",
   "license": "MIT",
   "require": {
-    "php": ">=7.4 <8.5",
-    "yahongie2014/purchase-order": "dev-main"
+    "php": ">=7.4 <8.5"
   },
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "https://github.com/yahongie2014/PurchaseOrder"
-    }
-  ],
-  "minimum-stability": "dev",
-  "prefer-stable": true,
   "autoload": {
     "psr-4": {
-      "App\\": "app/"
+      "PurchaseOrder\\": "src/"
     }
   },
-  "scripts": {
-    "post-autoload-dump": [
-      "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-      "@php artisan package:discover --ansi"
-    ]
-  },
-  "config": {
-    "optimize-autoloader": true,
-    "preferred-install": "dist",
-    "sort-packages": true
-  }
+  "minimum-stability": "dev",
+  "prefer-stable": true
 }
