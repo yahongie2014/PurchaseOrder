@@ -28,7 +28,7 @@ class SimulateController extends Controller
     // Show current user orders page
     public function orders()
     {
-        $orders = Order::where('customer_id', Auth::id())->with('items')->get();
+        $orders = Order::where('user_id', Auth::id())->with('items')->get();
         return view('purchaseorder::simulate.orders', compact('orders'));
     }
 
