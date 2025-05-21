@@ -11,7 +11,6 @@ class CategoryDetail extends Model
     protected $fillable = [
         'category_id', 'locale', 'name', 'description'
     ];
-
     /**
      * Belongs to the Category.
      */

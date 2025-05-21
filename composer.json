@@ -9,7 +9,10 @@
   "autoload": {
     "psr-4": {
       "PurchaseOrder\\": "src/",
-      "PurchaseOrder\\Models\\": "src/Models/"
+      "PurchaseOrder\\Models\\": "src/Models/",
+      "PurchaseOrder\\Http\\Resources\\": "src/Http/Resources/",
+      "PurchaseOrder\\Database\\Factories\\": "database/factories/",
+      "PurchaseOrder\\Database\\Seeders\\": "database/seeders/"
     }
   },
   "repositories": [
