@@ -11,6 +11,7 @@ use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
+use PurchaseOrder\Models\Cashier;
 use PurchaseOrder\Nova\Filters\PaymentStatusFilter;
 use PurchaseOrder\Nova\Actions\MarkAsPaid;
 use PurchaseOrder\Nova\Metrics\OrdersPerDay;
@@ -34,9 +35,8 @@ class Order extends Resource
 
             BelongsTo::make('User')->nullable(),
 
-            BelongsTo::make('cashier')->nullable(),
-
-            BelongsTo::make('customer')->nullable(),
+            BelongsTo::make('Cashier', 'cashier', Cashier::class)->nullable(),
+            BelongsTo::make('Customer', 'customer', Customer::class)->nullable(),
 
             Number::make('Subtotal')->step(0.01),
 
