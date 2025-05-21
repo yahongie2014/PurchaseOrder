@@ -11,10 +11,11 @@ use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Whitecube\NovaFlexibleContent\Flexible;
-use OptimistDigital\NovaTranslatable\Translatable;
 use PurchaseOrder\Nova\Filters\IsActiveFilter;
 use PurchaseOrder\Nova\Actions\ToggleActiveStatus;
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\Textarea;
+use OptimistDigital\NovaTranslatable\Translatable;
 
 class Product extends Resource
 {

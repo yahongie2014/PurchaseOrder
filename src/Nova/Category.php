@@ -8,6 +8,7 @@ use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\HasMany;
 use Whitecube\NovaFlexibleContent\Flexible;
+use Laravel\Nova\Fields\Textarea;
 use OptimistDigital\NovaTranslatable\Translatable;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
