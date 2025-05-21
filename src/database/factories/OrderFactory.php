@@ -28,6 +28,6 @@ class OrderFactory extends Factory
             'invoice_number' => $this->faker->unique()->bothify('INV-#####'),
             'notes' => $this->faker->sentence(),
         ];
-        
+
     }
 }
