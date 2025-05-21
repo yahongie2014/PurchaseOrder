@@ -21,10 +21,6 @@
     {
       "type": "path",
       "url": "../purchase-order"
-    },
-    {
-      "type": "path",
-      "url": "src/nova-src"
     }
   ],
   "extra": {
