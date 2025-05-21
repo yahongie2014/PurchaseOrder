@@ -4,6 +4,19 @@
   "description": "Reusable Laravel package",
   "type": "library",
   "license": "MIT",
+  "authors": [
+    {
+      "name": "Ahmed Awad",
+      "email": "a.saeed@null.net"
+    }
+  ],
+  "keywords": [
+    "laravel",
+    "pos",
+    "nova",
+    "ecommerce",
+    "dev"
+  ],
   "require": {
     "php": ">=7.4 <8.5",
     "spatie/laravel-translatable": "^6.0",
