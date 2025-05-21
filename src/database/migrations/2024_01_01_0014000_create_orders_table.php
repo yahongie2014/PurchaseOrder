@@ -17,7 +17,7 @@ return new class extends Migration {
             $table->decimal('tax_amount', 10, 2)->default(0);
             $table->decimal('total_amount', 10, 2);
             $table->decimal('paid_amount', 10, 2)->default(0);
-            $table->enum('payment_status', ['pending', 'paid', 'failed'])->default('pending');
+            $table->enum('payment_status', ['paid', 'pending', 'partial'])->default('pending');
             $table->enum('source', ['pos', 'web', 'mobile'])->default('pos');
             $table->string('invoice_number')->nullable();
             $table->text('notes')->nullable();
