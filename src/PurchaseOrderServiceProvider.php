@@ -73,7 +73,7 @@ class PurchaseOrderServiceProvider extends ServiceProvider
             ], 'pos-nova');
 
             Nova::resources([
-                \App\Nova\PurchaseOrder\PurchaseOrder\Product::class,
+                \App\Nova\PurchaseOrder\Product::class,
                 \App\Nova\PurchaseOrder\Brand::class,
                 \App\Nova\PurchaseOrder\BrandDetail::class,
                 \App\Nova\PurchaseOrder\Category::class,

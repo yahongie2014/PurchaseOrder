@@ -9,7 +9,7 @@ use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Fields\Textarea;
-use OptimistDigital\NovaTranslatable\Translatable;
+use Spatie\Translatable\Translatable;
 
 class Brand extends Resource
 {

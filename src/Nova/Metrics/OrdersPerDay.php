@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Nova\Metrics;
+namespace App\Nova\PurchaseOrder\Metrics;
 
 use DateTimeInterface;
 use Laravel\Nova\Http\Requests\NovaRequest;
