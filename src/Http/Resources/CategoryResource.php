@@ -11,12 +11,12 @@ class CategoryResource extends JsonResource
         return [
             'id' => $this->id,
             'slug' => $this->slug,
-            'is_active' => $this->is_active,
-            'cover_img_url' => $this->cover_img_url,
             'name' => $this->name,
             'description' => $this->description,
+            'is_active' => $this->is_active,
             'details' => CategoryDetailResource::collection($this->whenLoaded('details')),
             'products' => ProductResource::collection($this->whenLoaded('products')),
+            'cover_img_url' => $this->cover_img_url,
         ];
     }
 }

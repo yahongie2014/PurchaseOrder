@@ -4,7 +4,34 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b2f46304-9ea3-450f-8255-998003411b19" name="Changes" comment="" />
+    <list default="true" id="b2f46304-9ea3-450f-8255-998003411b19" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Models/ProductDetail.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Nova/Actions/MarkAsPaid.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Nova/Actions/ToggleActiveStatus.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Nova/Brand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Nova/BrandDetail.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Nova/Category.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Nova/CategoryDetail.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Nova/CurrencyRate.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Nova/Customer.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Nova/Filters/IsActiveFilter.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Nova/Filters/PaymentStatusFilter.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Nova/Metrics/OrdersPerDay.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Nova/Metrics/PaymentStatusPartition.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Nova/Order.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Nova/OrderItem.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Nova/Payment.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Nova/Product.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Nova/ProductImage.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Nova/SyncLog.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/migrations/2025_01_01_00145000_create_product_details_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Http/Resources/BrandResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Http/Resources/BrandResource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Http/Resources/CategoryResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Http/Resources/CategoryResource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Http/Resources/ProductResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Http/Resources/ProductResource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Models/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/Product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PurchaseOrderServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PurchaseOrderServiceProvider.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -61,7 +88,7 @@
       <updated>1747791264483</updated>
       <workItem from="1747791266266" duration="7033000" />
       <workItem from="1747799766605" duration="605000" />
-      <workItem from="1747804923686" duration="1989000" />
+      <workItem from="1747804923686" duration="4129000" />
     </task>
     <servers />
   </component>
