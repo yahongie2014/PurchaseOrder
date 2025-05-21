@@ -6,6 +6,7 @@ use DateTimeInterface;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Metrics\Partition;
 use Laravel\Nova\Metrics\PartitionResult;
+use PurchaseOrder\Models\Order;
 
 class PaymentStatusPartition extends Partition
 {

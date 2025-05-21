@@ -7,12 +7,13 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Metrics\Trend;
 use Laravel\Nova\Metrics\TrendResult;
 use Laravel\Nova\Nova;
+use PurchaseOrder\Models\Order;
 
 class OrdersPerDay extends Trend
 {
     public function calculate(NovaRequest $request): TrendResult
     {
-        return $this->countByDays($request, Order::class);
+        return $this->countByDays($request, Order::class, 'created_at');
     }
 
     public function ranges(): array
