@@ -20,6 +20,10 @@ return new class extends Migration {
             $table->decimal('tax_rate', 5, 2)->nullable();
             $table->boolean('is_taxable')->default(true);
             $table->string('unit')->default('pcs'); // pcs, kg, liter, etc.
+            $table->decimal('weight', 10, 2)->nullable();
+            $table->decimal('length', 10, 2)->nullable();
+            $table->decimal('width', 10, 2)->nullable();
+            $table->decimal('height', 10, 2)->nullable();
             $table->unsignedBigInteger('brand_id')->nullable();
             $table->foreign('brand_id')->references('id')->on('brands')->nullOnDelete();
             $table->string('cover_img')->nullable(); // image path or URL
