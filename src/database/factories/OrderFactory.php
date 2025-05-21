@@ -16,9 +16,9 @@ class OrderFactory extends Factory
     {
         return [
             'order_number' => $this->faker->unique()->bothify('ORD-####'),
-            'user_id' => User::factory(),
-            'cashier_id' => Cashier::factory(),
-            'customer_id' => Customer::factory(),
+            'user_id' => \Models\User::factory(),
+            'cashier_id' => \PurchaseOrder\Models\Cashier::factory(),
+            'customer_id' => \PurchaseOrder\Models\Customer::factory(),
             'subtotal' => $this->faker->randomFloat(2, 50, 1000),
             'discount_amount' => $this->faker->randomFloat(2, 0, 100),
             'tax_amount' => $this->faker->randomFloat(2, 0, 200),

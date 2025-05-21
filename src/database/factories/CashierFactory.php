@@ -13,7 +13,7 @@ class CashierFactory extends Factory
     {
         return [
             'name' => $this->faker->name(),
-            'user_id' => User::factory(),
+            'user_id' => \Models\User::factory(),
             'is_active' => $this->faker->boolean(90),
             'last_login_at' => $this->faker->dateTimeBetween('-1 year', 'now'),
         ];

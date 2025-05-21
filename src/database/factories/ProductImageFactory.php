@@ -13,7 +13,7 @@ class ProductImageFactory extends Factory
     public function definition()
     {
         return [
-            'product_id' => Product::factory(),
+            'product_id' => \PurchaseOrder\Models\Product::factory(),
             'url' => $this->faker->imageUrl(640, 480),
             'position' => $this->faker->numberBetween(1, 10),
             'type' => $this->faker->randomElement(['thumbnail', 'gallery']),
