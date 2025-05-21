@@ -40,7 +40,6 @@ class Order extends Model
     {
         return $this->belongsTo(\App\Models\User::class);
     }
-
     public function cashier()
     {
         return $this->belongsTo(Cashier::class);

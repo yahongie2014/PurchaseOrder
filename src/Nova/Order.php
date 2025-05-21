@@ -37,9 +37,7 @@ class Order extends Resource
             BelongsTo::make('User')->nullable(),
 
             BelongsTo::make('Cashier', 'cashier', Cashier::class)->nullable(),
-
-            BelongsTo::make('Customer', 'customer', Customer::class)->nullable(),
-
+            
             Number::make('Subtotal')->step(0.01),
 
             Number::make('Discount Amount')->step(0.01),
