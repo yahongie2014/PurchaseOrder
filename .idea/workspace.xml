@@ -5,25 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b2f46304-9ea3-450f-8255-998003411b19" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/PurchaseOrder.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/migrations/2024_01_01_000000_create_products_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/migrations/2024_01_01_000100_create_orders_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/migrations/2024_01_01_000200_create_order_items_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/migrations/2024_01_01_000300_create_payments_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/migrations/2024_01_01_000400_create_customers_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/migrations/2024_01_01_000500_create_cashiers_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/migrations/2024_01_01_000600_create_sync_logs_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/migrations/2024_01_01_000700_create_categories_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/migrations/2024_01_01_000800_create_category_details_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/migrations/2024_01_01_000900_create_product_images_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeception.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Models/Brand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Models/BrandDetail.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Models/Cashier.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Models/Category.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Models/CategoryDetail.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Models/Customer.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Models/Order.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Models/OrderItem.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Models/Payment.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Models/Product.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Models/ProductImage.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Models/SyncLog.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/PurchaseOrderServiceProvider.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/lang/ar/units.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/lang/en/units.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/PurchaseOrder.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/PurchaseOrder.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/phpspec.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/phpunit.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/migrations/2024_01_01_000000_create_products_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/migrations/2024_01_01_000000_create_products_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/migrations/2024_01_01_000300_create_payments_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/migrations/2024_01_01_000300_create_payments_table.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,11 +39,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="C:\laragon\bin\php\php-7.3.15-Win32-VC15-x64\php.exe">
-    <include_path>
-      <path value="$PROJECT_DIR$/vendor/composer" />
-    </include_path>
-  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="C:\laragon\bin\php\php-7.3.15-Win32-VC15-x64\php.exe" />
   <component name="ProjectId" id="2xNvIDYFxFqYlvC9Lc3OaJeBc5d" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -76,7 +74,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1747791264483</updated>
-      <workItem from="1747791266266" duration="1474000" />
+      <workItem from="1747791266266" duration="2657000" />
     </task>
     <servers />
   </component>
