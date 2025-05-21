@@ -13,6 +13,8 @@ class PurchaseOrderServiceProvider extends ServiceProvider
     {
         $this->loadMigrationsFrom(__DIR__ . '/migrations');
         $this->loadTranslationsFrom(__DIR__ . '/resources/lang', 'pos');
+        $this->loadRoutesFrom(__DIR__ . '/routes/web.php');
+        $this->loadViewsFrom(__DIR__ . '/resources/views', 'purchaseorder');
 
         $this->publishes([
             __DIR__ . '/resources/lang' => resource_path('lang/vendor/purchase-order'),
@@ -38,6 +40,19 @@ class PurchaseOrderServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/database/factories' => database_path('factories/PurchaseOrder'),
         ], 'pos-factory');
+
+        //test package
+        $this->publishes([
+            __DIR__ . '/resources/views' => resource_path('views/vendor/purchaseorder'),
+        ], 'pos-views');
+
+        $this->publishes([
+            __DIR__ . '/routes' => base_path('routes/vendor/purchaseorder'),
+        ], 'pos-routes');
+
+        $this->publishes([
+            __DIR__ . '/Http/Controllers' => app_path('Http/Controllers/PurchaseOrder'),
+        ], 'pos-controllers');
 
         Broadcast::channel(config('purchaseorder.redis.channel_orders'), function ($user) {
             return true;
@@ -76,6 +91,13 @@ class PurchaseOrderServiceProvider extends ServiceProvider
             __DIR__ . '/resources/lang' => resource_path('lang/vendor/purchase-order'),
             __DIR__ . '/Models' => app_path('Models/PurchaseOrder'),
         ], 'pos-all');
+
+        $this->publishes([
+            __DIR__ . '/resources/views' => resource_path('views/vendor/purchaseorder'),
+            __DIR__ . '/routes' => base_path('routes/vendor/purchaseorder'),
+            __DIR__ . '/Http/Controllers' => app_path('Http/Controllers/PurchaseOrder'),
+        ], 'pos-test');
+
     }
 
     public function register(): void
