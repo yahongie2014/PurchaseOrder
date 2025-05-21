@@ -171,7 +171,7 @@ A comprehensive Laravel package to manage purchase orders, products, customers, 
 Via Composer (assuming your package repository is registered or use path repository):
 
 ```bash
-composer require yahongie2014/purchase-order
+composer require yahongie2014/purchase-order:dev-main
 ```
 
 2. **Publish package assets**
