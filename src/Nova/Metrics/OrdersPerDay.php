@@ -1,19 +1,21 @@
 <?php
 
-namespace PurchaseOrder\Nova\Metrics;
+namespace App\Nova\Metrics;
 
+use DateTimeInterface;
+use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Metrics\Trend;
-use Illuminate\Http\Request;
-use PurchaseOrder\Models\Order;
+use Laravel\Nova\Metrics\TrendResult;
+use Laravel\Nova\Nova;
 
 class OrdersPerDay extends Trend
 {
-    public function calculate(Request $request)
+    public function calculate(NovaRequest $request): TrendResult
     {
         return $this->countByDays($request, Order::class);
     }
 
-    public function ranges()
+    public function ranges(): array
     {
         return [
             7 => 'Last 7 Days',

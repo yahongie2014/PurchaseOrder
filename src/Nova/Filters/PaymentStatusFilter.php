@@ -1,20 +1,21 @@
 <?php
 
-namespace PurchaseOrder\Nova\Filters;
+namespace App\Nova\Filters;
 
-use Illuminate\Http\Request;
-use Laravel\Nova\Filters\SelectFilter;
+use Illuminate\Contracts\Database\Eloquent\Builder;
+use Laravel\Nova\Filters\Filter;
+use Laravel\Nova\Http\Requests\NovaRequest;
 
-class PaymentStatusFilter extends SelectFilter
+class PaymentStatusFilter extends Filter
 {
     public $name = 'Payment Status';
 
-    public function apply(Request $request, $query, $value)
+    public function apply(NovaRequest $request, Builder $query, mixed $value): Builder
     {
         return $query->where('payment_status', $value);
     }
 
-    public function options(Request $request)
+    public function options(NovaRequest $request): array
     {
         return [
             'Paid' => 'paid',

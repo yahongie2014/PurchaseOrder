@@ -1,6 +1,6 @@
 <?php
 
-namespace PurchaseOrder\Nova;
+namespace App\Nova;
 
 use Laravel\Nova\Resource;
 use Laravel\Nova\Fields\ID;

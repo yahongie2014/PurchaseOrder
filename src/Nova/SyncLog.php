@@ -1,12 +1,12 @@
 <?php
 
-namespace PurchaseOrder\Nova;
+namespace App\Nova;
 
+use Laravel\Nova\Fields\Code;
 use Laravel\Nova\Resource;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\DateTime;
-use Laravel\Nova\Fields\Json;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class SyncLog extends Resource
@@ -30,7 +30,7 @@ class SyncLog extends Resource
 
             DateTime::make('Synced At')->nullable(),
 
-            Json::make('Response Data')->hideFromIndex(),
+            Code::make('Response Data')->json()->hideFromIndex(),
             DateTime::make('Created At')->sortable(),
             DateTime::make('Updated At')->sortable(),
         ];

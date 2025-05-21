@@ -1,10 +1,15 @@
 <?php
 
-namespace PurchaseOrder\Nova\Actions;
+namespace App\Nova\Actions;
 
-use Laravel\Nova\Actions\Action;
-use Laravel\Nova\Fields\ActionFields;
+use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Support\Collection;
+use Laravel\Nova\Actions\Action;
+use Laravel\Nova\Actions\ActionResponse;
+use Laravel\Nova\Fields\ActionFields;
+use Laravel\Nova\Http\Requests\NovaRequest;
 
 class ToggleActiveStatus extends Action
 {
@@ -19,7 +24,12 @@ class ToggleActiveStatus extends Action
         return Action::message('Active status toggled successfully.');
     }
 
-    public function fields()
+    /**
+     * Get the fields available on the action.
+     *
+     * @return array<int, \Laravel\Nova\Fields\Field>
+     */
+    public function fields(NovaRequest $request): array
     {
         return [];
     }
