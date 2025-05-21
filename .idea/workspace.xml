@@ -4,20 +4,33 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc90f37e-ccd4-4021-8635-3aa8f03de380" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/PurchaseOrder.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+    <list default="true" id="b2f46304-9ea3-450f-8255-998003411b19" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/PurchaseOrder.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/migrations/2024_01_01_000000_create_products_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/migrations/2024_01_01_000100_create_orders_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/migrations/2024_01_01_000200_create_order_items_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/migrations/2024_01_01_000300_create_payments_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/migrations/2024_01_01_000400_create_customers_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/migrations/2024_01_01_000500_create_cashiers_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/migrations/2024_01_01_000600_create_sync_logs_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/migrations/2024_01_01_000700_create_categories_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/migrations/2024_01_01_000800_create_category_details_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/migrations/2024_01_01_000900_create_product_images_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeception.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/phpspec.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/phpunit.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" notifyAboutMissingVendor="false" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
@@ -29,19 +42,25 @@
       <path value="$PROJECT_DIR$/vendor/composer" />
     </include_path>
   </component>
-  <component name="ProjectId" id="2xNsA6QoMdNO541bdrB7zzihz3x" />
+  <component name="ProjectId" id="2xNvIDYFxFqYlvC9Lc3OaJeBc5d" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/laragon/www/PurchaseOrder",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -52,16 +71,19 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="fc90f37e-ccd4-4021-8635-3aa8f03de380" name="Changes" comment="" />
-      <created>1747789718131</created>
+      <changelist id="b2f46304-9ea3-450f-8255-998003411b19" name="Changes" comment="" />
+      <created>1747791264483</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1747789718131</updated>
-      <workItem from="1747789719354" duration="1063000" />
+      <updated>1747791264483</updated>
+      <workItem from="1747791266266" duration="1474000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>
