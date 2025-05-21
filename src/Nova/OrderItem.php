@@ -5,7 +5,6 @@ namespace PurchaseOrder\Nova;
 use Laravel\Nova\Resource;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Number;
-use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
@@ -13,20 +12,18 @@ class OrderItem extends Resource
 {
     public static $model = \PurchaseOrder\Models\OrderItem::class;
 
-    public static $title = 'product_name';
+    public static $title = 'Product';
 
-    public static $search = ['id', 'product_name'];
+    public static $search = ['id', 'product_id'];
 
     public function fields(NovaRequest $request)
     {
         return [
             ID::make()->sortable(),
 
-            BelongsTo::make('Order'),
+            BelongsTo::make('Order', 'order', Order::class)->nullable(),
 
-            BelongsTo::make('Product'),
-
-            Text::make('Product Name')->sortable()->rules('required', 'max:255'),
+            BelongsTo::make('Product', 'product', Product::class)->nullable(),
 
             Number::make('Quantity', 'qty'),
 
