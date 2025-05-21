@@ -14,9 +14,6 @@ use Illuminate\Http\Request;
 
 use PurchaseOrder\Models\Order as OrderModel;
 
-use PurchaseOrder\Nova\Customer;
-use PurchaseOrder\Nova\OrderItem;
-use PurchaseOrder\Nova\Payment;
 use PurchaseOrder\Nova\Filters\PaymentStatusFilter;
 use PurchaseOrder\Nova\Actions\MarkAsPaid;
 use PurchaseOrder\Nova\Metrics\OrdersPerDay;
