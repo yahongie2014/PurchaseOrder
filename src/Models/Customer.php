@@ -21,7 +21,7 @@ class Customer extends Model
 
     protected static function newFactory()
     {
-        return \PurchaseOrder\Database\Factories\ProductFactory::new();
+        return \Database\Factories\ProductFactory::new();
     }
 
     public function orders()

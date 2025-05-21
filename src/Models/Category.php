@@ -21,7 +21,7 @@ class Category extends Model
 
     protected static function newFactory()
     {
-        return \PurchaseOrder\Database\Factories\CategoryFactory::new();
+        return \Database\Factories\CategoryFactory::new();
     }
 
     public function details()

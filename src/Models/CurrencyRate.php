@@ -29,7 +29,7 @@ class CurrencyRate extends Model
 
     protected static function newFactory()
     {
-        return \PurchaseOrder\Database\Factories\CurrencyRateFactory::new();
+        return \Database\Factories\CurrencyRateFactory::new();
     }
 
     public function products(): HasMany

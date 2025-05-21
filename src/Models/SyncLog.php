@@ -22,7 +22,7 @@ class SyncLog extends Model
 
     protected static function newFactory()
     {
-        return \PurchaseOrder\Database\Factories\SyncLogFactory::new();
+        return \Database\Factories\SyncLogFactory::new();
     }
 
 }

@@ -23,7 +23,7 @@ class Payment extends Model
 
     protected static function newFactory()
     {
-        return \PurchaseOrder\Database\Factories\PaymentFactory::new();
+        return \Database\Factories\PaymentFactory::new();
     }
 
     public function order()

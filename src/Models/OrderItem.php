@@ -26,7 +26,7 @@ class OrderItem extends Model
 
     protected static function newFactory()
     {
-        return \PurchaseOrder\Database\Factories\OrderItemFactory::new();
+        return \Database\Factories\OrderItemFactory::new();
     }
 
     public function order()

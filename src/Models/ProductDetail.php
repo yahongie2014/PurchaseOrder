@@ -15,7 +15,7 @@ class ProductDetail extends Model
 
     protected static function newFactory()
     {
-        return \PurchaseOrder\Database\Factories\ProductDetailFactory::new();
+        return \Database\Factories\ProductDetailFactory::new();
     }
 
     public function product()

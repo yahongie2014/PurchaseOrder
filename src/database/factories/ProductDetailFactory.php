@@ -1,6 +1,6 @@
 <?php
 
-namespace PurchaseOrder\Database\Factories;
+namespace Database\Factories;
 
 use PurchaseOrder\Models\ProductDetail;
 use Illuminate\Database\Eloquent\Factories\Factory;

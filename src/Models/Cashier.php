@@ -21,7 +21,7 @@ class Cashier extends Model
 
     protected static function newFactory()
     {
-        return \PurchaseOrder\Database\Factories\CashierFactory::new();
+        return \Database\Factories\CashierFactory::new();
     }
 
     public function orders()

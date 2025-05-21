@@ -1,6 +1,6 @@
 <?php
 
-namespace PurchaseOrder\Database\Seeders;
+namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use PurchaseOrder\Models\OrderItem;

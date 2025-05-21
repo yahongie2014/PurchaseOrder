@@ -22,7 +22,7 @@ class ProductImage extends Model
 
     protected static function newFactory()
     {
-        return \PurchaseOrder\Database\Factories\ProductImageFactory::new();
+        return \Database\Factories\ProductImageFactory::new();
     }
 
     public function product()

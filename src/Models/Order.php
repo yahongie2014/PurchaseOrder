@@ -33,7 +33,7 @@ class Order extends Model
 
     protected static function newFactory()
     {
-        return \PurchaseOrder\Database\Factories\OrderFactory::new();
+        return \Database\Factories\OrderFactory::new();
     }
 
     public function user()

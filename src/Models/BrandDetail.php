@@ -17,7 +17,7 @@ class BrandDetail extends Model
 
     protected static function newFactory()
     {
-        return \PurchaseOrder\Database\Factories\BrandDetailFactory::new();
+        return \Database\Factories\BrandDetailFactory::new();
     }
 
 

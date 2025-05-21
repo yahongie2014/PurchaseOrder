@@ -17,7 +17,7 @@ class CategoryDetail extends Model
 
     protected static function newFactory()
     {
-        return \PurchaseOrder\Database\Factories\CategoryDetailFactory::new();
+        return \Database\Factories\CategoryDetailFactory::new();
     }
 
     /**
