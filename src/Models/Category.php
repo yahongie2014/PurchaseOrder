@@ -2,6 +2,7 @@
 
 namespace PurchaseOrder\Models;
 
+use Spatie\Translatable\HasTranslations;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Facades\Storage;
 use PurchaseOrder\Events\ProductUpdated;
 use PurchaseOrder\Services\CurrencyConverter;
+use Spatie\Translatable\HasTranslations;
 
 class Product extends Model
 {
