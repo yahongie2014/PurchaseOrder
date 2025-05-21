@@ -10,17 +10,21 @@ use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use Illuminate\Http\Request;
 
-use PurchaseOrder\Models\Cashier;
+use PurchaseOrder\Models\Order as OrderModel;
+
+use PurchaseOrder\Nova\Customer;
+use PurchaseOrder\Nova\OrderItem;
+use PurchaseOrder\Nova\Payment;
 use PurchaseOrder\Nova\Filters\PaymentStatusFilter;
 use PurchaseOrder\Nova\Actions\MarkAsPaid;
 use PurchaseOrder\Nova\Metrics\OrdersPerDay;
 use PurchaseOrder\Nova\Metrics\PaymentStatusPartition;
-use Illuminate\Http\Request;
 
 class Order extends Resource
 {
-    public static $model = \PurchaseOrder\Models\Order::class;
+    public static $model = OrderModel::class;
 
     public static $title = 'order_number';
 
@@ -36,6 +40,7 @@ class Order extends Resource
             BelongsTo::make('User')->nullable(),
 
             BelongsTo::make('Cashier', 'cashier', Cashier::class)->nullable(),
+
             BelongsTo::make('Customer', 'customer', Customer::class)->nullable(),
 
             Number::make('Subtotal')->step(0.01),
