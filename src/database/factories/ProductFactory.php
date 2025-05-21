@@ -34,7 +34,6 @@ class ProductFactory extends Factory
             'category_id' => Category::factory(),
             'synced_at' => now(),
             'is_active' => true,
-            'description' => $this->faker->sentence(),
         ];
     }
 }
