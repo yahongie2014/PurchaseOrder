@@ -1,10 +1,10 @@
+
 # PurchaseOrder Laravel Package
 
-A comprehensive Laravel package to manage purchase orders, products, customers, payments, and related entities with full
-database migrations, seeders, API resources, events, and Laravel Nova admin panel integration.
+A comprehensive Laravel package to manage purchase orders, products, customers, payments, and related entities with full database migrations, seeders, API resources, events, and Laravel Nova admin panel integration.
 
+---
 # Package Tree
-
 ````
 │   composer.json
 │   LICENSE
@@ -142,8 +142,6 @@ database migrations, seeders, API resources, events, and Laravel Nova admin pane
             CurrencyConverter.php
 ````
 
----
-
 ## Features
 
 - Fully structured Eloquent models for Brands, Products, Orders, Customers, Payments, and more
@@ -154,6 +152,7 @@ database migrations, seeders, API resources, events, and Laravel Nova admin pane
 - Currency conversion service
 - Multi-language support for units (English and Arabic)
 - Well-organized config file to customize package behavior
+- Redis broadcast channels for order and product events
 
 ---
 
@@ -175,31 +174,65 @@ Via Composer (assuming your package repository is registered or use path reposit
 composer require yahongie2014/purchase-order
 ```
 
-2. **Publish config**
+2. **Publish package assets**
+
+The package provides multiple publish tags to copy files into your Laravel app. Use these commands depending on what you want to publish:
+
+- Publish config file:
 
 ```bash
-php artisan vendor:publish --provider="PurchaseOrder\PurchaseOrderServiceProvider" --tag="config"
+php artisan vendor:publish --provider="PurchaseOrder\PurchaseOrderServiceProvider" --tag=pos-config
 ```
 
-3. **Publish migrations**
+- Publish migrations:
 
 ```bash
-php artisan vendor:publish --provider="PurchaseOrder\PurchaseOrderServiceProvider" --tag="migrations"
+php artisan vendor:publish --provider="PurchaseOrder\PurchaseOrderServiceProvider" --tag=pos-migrations
 ```
 
-4. **Publish seeders (optional)**
+- Publish seeders:
 
 ```bash
-php artisan vendor:publish --provider="PurchaseOrder\PurchaseOrderServiceProvider" --tag="seeders"
+php artisan vendor:publish --provider="PurchaseOrder\PurchaseOrderServiceProvider" --tag=pos-seeders
 ```
 
-5. **Run migrations**
+- Publish model factories:
+
+```bash
+php artisan vendor:publish --provider="PurchaseOrder\PurchaseOrderServiceProvider" --tag=pos-factory
+```
+
+- Publish Eloquent models:
+
+```bash
+php artisan vendor:publish --provider="PurchaseOrder\PurchaseOrderServiceProvider" --tag=pos-models
+```
+
+- Publish language files:
+
+```bash
+php artisan vendor:publish --provider="PurchaseOrder\PurchaseOrderServiceProvider" --tag=pos-lang
+```
+
+- Publish Laravel Nova resources (if you use Nova):
+
+```bash
+php artisan vendor:publish --provider="PurchaseOrder\PurchaseOrderServiceProvider" --tag=pos-nova
+```
+
+- Publish all assets at once:
+
+```bash
+php artisan vendor:publish --provider="PurchaseOrder\PurchaseOrderServiceProvider" --tag=pos-all
+```
+
+3. **Run migrations**
 
 ```bash
 php artisan migrate
 ```
 
-6. **Run seeders**
+4. **Run seeders**
 
 To populate the database with sample data, run:
 
@@ -211,8 +244,22 @@ php artisan db:seed --class="PurchaseOrderDatabaseSeeder"
 
 ## Configuration
 
-Configuration file is published to `config/purchaseorder.php`. Modify this file to adjust package settings such as
-default currency, pagination, etc.
+Configuration file is published to `config/purchaseorder.php`. Modify this file to adjust package settings such as default currency, pagination, and Redis broadcast channels.
+
+---
+
+## Redis Broadcast Channels
+
+The package uses Redis broadcast channels to push real-time updates for orders and products. These channels are configurable via:
+
+```php
+'redis' => [
+    'channel_orders' => 'purchaseorder-orders',
+    'channel_products' => 'purchaseorder-products',
+],
+```
+
+Make sure your Laravel Echo or WebSocket server listens to these channels if you want real-time frontend updates.
 
 ---
 
@@ -286,9 +333,19 @@ To enable Nova features, register the Nova resources in your `NovaServiceProvide
 
 ```php
 Nova::resources([
-    \PurchaseOrder\Nova\Order::class,
     \PurchaseOrder\Nova\Product::class,
-    // ... others
+    \PurchaseOrder\Nova\Brand::class,
+    \PurchaseOrder\Nova\BrandDetail::class,
+    \PurchaseOrder\Nova\Category::class,
+    \PurchaseOrder\Nova\CategoryDetail::class,
+    \PurchaseOrder\Nova\Cashier::class,
+    \PurchaseOrder\Nova\Customer::class,
+    \PurchaseOrder\Nova\Order::class,
+    \PurchaseOrder\Nova\OrderItem::class,
+    \PurchaseOrder\Nova\Payment::class,
+    \PurchaseOrder\Nova\ProductImage::class,
+    \PurchaseOrder\Nova\SyncLog::class,
+    \PurchaseOrder\Nova\CurrencyRate::class,
 ]);
 ```
 
@@ -298,14 +355,13 @@ Nova::resources([
 
 - Modify or extend Eloquent models by extending the base classes in your app namespace.
 - Add custom Nova fields, filters, or actions by extending the provided Nova classes.
-- Use the CurrencyConverter service to handle currency conversion logic.
+- Use the `CurrencyConverter` service to handle currency conversion logic.
 
 ---
 
 ## Testing
 
-The package includes factories and seeders to facilitate testing. You can use Laravel's built-in testing framework to
-create feature or unit tests utilizing these factories.
+The package includes factories and seeders to facilitate testing. You can use Laravel's built-in testing framework to create feature or unit tests utilizing these factories.
 
 ---
 
@@ -322,4 +378,3 @@ For issues or questions, please open an issue in the package repository or conta
 ---
 
 Thank you for using the PurchaseOrder package!
-
