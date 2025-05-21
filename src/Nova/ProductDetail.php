@@ -2,6 +2,7 @@
 
 namespace App\Nova\PurchaseOrder;
 
+use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Resource;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
@@ -19,13 +20,14 @@ class ProductDetail extends Resource
 
     public function fields(NovaRequest $request)
     {
+        $locales = config('locales.locales', ['en' => 'English', 'ar' => 'Arabic']);
         return [
             ID::make()->sortable(),
-
             BelongsTo::make('Product')->rules('required'),
-
-            Text::make('Locale')->rules('required', 'max:10'),
-
+            Select::make('Locale')
+                ->options($locales)
+                ->rules('required', 'max:10')
+                ->displayUsingLabels(),
             Text::make('Name')->rules('required', 'max:255'),
 
             Textarea::make('Description')->nullable(),

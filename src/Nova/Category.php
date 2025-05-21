@@ -24,16 +24,19 @@ class Category extends Resource
     {
         return [
             ID::make()->sortable(),
-
-            Translatable::make('Name')->singleLine()->rules('required'),
-            Translatable::make('Description')->singleLine()->rules('required'),
-
-            Text::make('Slug')->sortable()->rules('required', 'max:255'),
-
+            Text::make('Slug')
+                ->sortable()
+                ->rules('required', 'max:255')
+                ->creationRules('unique:categories,slug')
+                ->fillUsing(function ($request, $model, $attribute, $requestAttribute) {
+                    if ($request->input($requestAttribute)) {
+                        $model->{$attribute} = $request->input($requestAttribute);
+                    } else {
+                        $model->{$attribute} = 'CAT-' . strtoupper(Str::random(8));
+                    }
+                }),
             Boolean::make('Is Active'),
-
-            HasMany::make('Details', 'details', CategoryDetail::class),
-
+            HasMany::make('Details', 'details', CategoryDetail::class)->hideWhenCreating()->hideWhenUpdating(),
             HasMany::make('Products', 'products', Product::class),
         ];
     }

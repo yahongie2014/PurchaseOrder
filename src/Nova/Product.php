@@ -4,6 +4,8 @@ namespace App\Nova\PurchaseOrder;
 
 use App\Nova\PurchaseOrder\Actions\ToggleActiveStatus;
 use App\Nova\PurchaseOrder\Filters\IsActiveFilter;
+use Laravel\Nova\Fields\Select;
+use Laravel\Nova\Panel;
 use Laravel\Nova\Resource;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
@@ -21,15 +23,25 @@ class Product extends Resource
 
     public static $title = 'sku';
 
-    public static $search = ['id', 'sku', 'barcode', 'name->en', 'name->ar',];
+    public static $search = ['id', 'sku', 'barcode'];
 
     public function fields(NovaRequest $request)
     {
+        $locales = config('app.locales', ['en', 'ar']);
+
         return [
             ID::make()->sortable(),
-            Translatable::make('Name')->singleLine()->rules('required'),
-            Translatable::make('Description')->singleLine()->rules('required'),
-            Text::make('SKU')->sortable()->rules('required', 'max:255'),
+            Text::make('SKU')
+                ->sortable()
+                ->rules('required', 'max:255')
+                ->creationRules('unique:products,sku')
+                ->fillUsing(function ($request, $model, $attribute, $requestAttribute) {
+                    if ($request->input($requestAttribute)) {
+                        $model->{$attribute} = $request->input($requestAttribute);
+                    } else {
+                        $model->{$attribute} = 'PROD-' . strtoupper(Str::random(8));
+                    }
+                }),
             Text::make('Barcode')->nullable(),
             Number::make('Original Price')->step(0.01),
             Number::make('Cost Price')->step(0.01),
@@ -38,7 +50,16 @@ class Product extends Resource
             Number::make('Stock Quantity'),
             Number::make('Tax Rate')->step(0.01),
             Boolean::make('Is Taxable'),
-            Text::make('Unit')->nullable(),
+            Select::make('Unit')
+                ->options([
+                    'pcs' => 'Pieces',
+                    'kg' => 'Kilograms',
+                    'ltr' => 'Liters',
+                    'm' => 'Meters',
+                    'cm' => 'Centimeters',
+                ])
+                ->nullable()
+                ->displayUsingLabels(),
             Number::make('Weight')->step(0.01),
             Number::make('Length')->step(0.01),
             Number::make('Width')->step(0.01),
@@ -48,7 +69,7 @@ class Product extends Resource
             HasMany::make('Images', 'images', ProductImage::class),
             HasMany::make('Order Items', 'orderItems', OrderItem::class),
             Boolean::make('Is Active'),
-            Text::make('Description')->hideFromIndex(),
+            HasMany::make('Details', 'details', ProductDetail::class)->hideWhenCreating()->hideWhenUpdating(),
         ];
     }
 

@@ -20,9 +20,7 @@ class CurrencyRate extends Resource
     {
         return [
             ID::make()->sortable(),
-
             Text::make('Currency Code')->sortable()->rules('required', 'max:3'),
-
             Number::make('Rate')->step(0.000001),
         ];
     }

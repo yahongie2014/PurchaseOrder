@@ -22,17 +22,22 @@ class Brand extends Resource
     {
         return [
             ID::make()->sortable(),
-            Translatable::make('Name')->singleLine()->rules('required'),
-            Translatable::make('Description')->singleLine()->rules('required'),
-            Text::make('Slug')->sortable()->rules('required', 'max:255'),
-
+            Text::make('Slug')
+                ->sortable()
+                ->rules('required', 'max:255')
+                ->creationRules('unique:brands,slug')
+                ->fillUsing(function ($request, $model, $attribute, $requestAttribute) {
+                    if ($request->input($requestAttribute)) {
+                        $model->{$attribute} = $request->input($requestAttribute);
+                    } else {
+                        $model->{$attribute} = 'BRD-' . strtoupper(Str::random(8));
+                    }
+                }),
             Text::make('Logo')->nullable(),
-
             Boolean::make('Is Active'),
-
-            HasMany::make('Details', 'details', BrandDetail::class),
-
             HasMany::make('Products', 'products', Product::class),
+            HasMany::make('Details', 'details', BrandDetail::class)->hideWhenCreating()->hideWhenUpdating(),
+
         ];
     }
 }

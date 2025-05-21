@@ -39,9 +39,9 @@ class Order extends Resource
 
             Number::make('Subtotal')->step(0.01),
 
-            Number::make('Discount Amount')->step(0.01),
+            Number::make('Discount Amount')->step(0.01)->hideFromIndex(),
 
-            Number::make('Tax Amount')->step(0.01),
+            Number::make('Tax Amount')->step(0.01)->hideFromIndex(),
 
             Number::make('Total Amount')->step(0.01),
 
@@ -53,11 +53,9 @@ class Order extends Resource
 
             Text::make('Invoice Number')->nullable(),
 
-            Text::make('Notes')->hideFromIndex()->nullable(),
-
+            Text::make('Notes')->hideFromIndex()->nullable()->hideFromIndex(),
             DateTime::make('Created At')->sortable(),
-
-            DateTime::make('Updated At')->sortable(),
+            DateTime::make('Updated At')->sortable()->hideFromIndex(),
 
             HasMany::make('Items', 'items', OrderItem::class),
 
@@ -86,4 +84,6 @@ class Order extends Resource
             new PaymentStatusPartition(),
         ];
     }
+
+
 }
