@@ -9,10 +9,11 @@ use PurchaseOrder\Events\ProductUpdated;
 use PurchaseOrder\Services\CurrencyConverter;
 use Spatie\Translatable\HasTranslations;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use OptimistDigital\NovaTranslatable\Translatable;
 
 class Product extends Model
 {
-    use HasTranslations, HasFactory;
+    use HasTranslations, HasFactory, Translatable;
 
     public $translatable = ['name', 'description'];
 

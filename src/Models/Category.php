@@ -2,14 +2,15 @@
 
 namespace PurchaseOrder\Models;
 
-use Spatie\Translatable\HasTranslations;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Spatie\Translatable\HasTranslations;
+use OptimistDigital\NovaTranslatable\Translatable;
 
 class Category extends Model
 {
-    use HasTranslations, HasFactory;
+    use HasTranslations, HasFactory, Translatable;
 
     public $translatable = ['name', 'description'];
 

@@ -4,10 +4,12 @@ namespace PurchaseOrder\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Spatie\Translatable\HasTranslations;
+use OptimistDigital\NovaTranslatable\Translatable;
 
 class Brand extends Model
 {
-    use HasFactory;
+    use HasTranslations, HasFactory, Translatable;
 
     protected $table = 'brands';
 
