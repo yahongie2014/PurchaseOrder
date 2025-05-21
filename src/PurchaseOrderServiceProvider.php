@@ -111,6 +111,7 @@ class PurchaseOrderServiceProvider extends ServiceProvider
             __DIR__ . '/config/purchaseorder.php',
             'purchaseorder'
         );
+		
 
         $this->app->singleton(CurrencyConverter::class, function ($app) {
             return new CurrencyConverter();
