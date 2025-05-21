@@ -13,6 +13,7 @@ return new class extends Migration {
             $table->string('sku')->unique();
             $table->string('barcode')->nullable();
             $table->decimal('original_price', 10, 2);
+            $table->decimal('cost_price', 10, 2)->nullable();
             $table->decimal('sale_price', 10, 2)->nullable();
             $table->boolean('is_sale')->default(false);
             $table->integer('stock_quantity')->default(0);
