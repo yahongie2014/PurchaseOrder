@@ -9,6 +9,7 @@ class PurchaseOrderServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->loadMigrationsFrom(__DIR__ . '/migrations');
+        $this->loadModelsForm(__DIR__ . '/Models');
         $this->loadTranslationsFrom(__DIR__ . '/resources/lang', 'purchase-order');
 
         $this->publishes([
@@ -17,7 +18,10 @@ class PurchaseOrderServiceProvider extends ServiceProvider
 
         $this->publishes([
             __DIR__ . '/migrations' => database_path('migrations'),
-        ], 'migrations');
+        ], 'Models');
+        $this->publishes([
+            __DIR__ . '/Models' => app_path('Models/PurchaseOrder'),
+        ], 'purchaseorder-models');
     }
 
     public function register(): void
