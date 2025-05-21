@@ -8,7 +8,8 @@
   },
   "autoload": {
     "psr-4": {
-      "PurchaseOrder\\": "src/"
+      "PurchaseOrder\\": "src/",
+      "PurchaseOrder\\Models\\": "src/Models/"
     }
   },
   "repositories": [
