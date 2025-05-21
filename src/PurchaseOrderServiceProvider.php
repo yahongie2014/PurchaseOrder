@@ -75,7 +75,7 @@ class PurchaseOrderServiceProvider extends ServiceProvider
             __DIR__ . '/../database/seeders' => database_path('seeders'),
             __DIR__ . '/../resources/lang' => resource_path('lang/vendor/purchase-order'),
             __DIR__ . '/Models' => app_path('Models/PurchaseOrder'),
-        ], 'purchaseorder-all');
+        ], 'pos-all');
     }
 
     public function register(): void
