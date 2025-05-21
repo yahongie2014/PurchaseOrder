@@ -1,5 +1,6 @@
 {
   "name": "yahongie2014/purchase-order",
+  "version": "1.0.0",
   "description": "Reusable Laravel package",
   "type": "library",
   "license": "MIT",
