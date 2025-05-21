@@ -34,9 +34,9 @@ class Order extends Resource
 
             BelongsTo::make('User')->nullable(),
 
-            BelongsTo::make('Cashier')->nullable(),
+            BelongsTo::make('cashier')->nullable(),
 
-            BelongsTo::make('Customer')->nullable(),
+            BelongsTo::make('customer')->nullable(),
 
             Number::make('Subtotal')->step(0.01),
 

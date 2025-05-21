@@ -31,7 +31,6 @@ class SyncLog extends Resource
             DateTime::make('Synced At')->nullable(),
 
             Json::make('Response Data')->hideFromIndex(),
-
             DateTime::make('Created At')->sortable(),
             DateTime::make('Updated At')->sortable(),
         ];
