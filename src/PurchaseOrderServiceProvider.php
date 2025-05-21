@@ -13,7 +13,15 @@ class PurchaseOrderServiceProvider extends ServiceProvider
     {
         $this->loadMigrationsFrom(__DIR__ . '/migrations');
         $this->loadTranslationsFrom(__DIR__ . '/resources/lang', 'pos');
-        $this->loadRoutesFrom(__DIR__ . '/routes/web.php');
+
+        // تحميل الراوتس من المسار المنشور إذا متاح، وإلا من المسار الافتراضي داخل الحزمة
+        $publishedRoutesPath = base_path('routes/vendor/purchaseorder/web.php');
+        if (file_exists($publishedRoutesPath)) {
+            $this->loadRoutesFrom($publishedRoutesPath);
+        } else {
+            $this->loadRoutesFrom(__DIR__ . '/routes/web.php');
+        }
+
         $this->loadViewsFrom(__DIR__ . '/resources/views', 'purchaseorder');
 
         $this->publishes([
@@ -32,7 +40,6 @@ class PurchaseOrderServiceProvider extends ServiceProvider
             __DIR__ . '/config/purchaseorder.php' => config_path('purchaseorder.php'),
         ], 'pos-config');
 
-
         $this->publishes([
             __DIR__ . '/database/seeders' => database_path('seeders/PurchaseOrder'),
         ], 'pos-seeders');
@@ -41,7 +48,6 @@ class PurchaseOrderServiceProvider extends ServiceProvider
             __DIR__ . '/database/factories' => database_path('factories/PurchaseOrder'),
         ], 'pos-factory');
 
-        //test package
         $this->publishes([
             __DIR__ . '/resources/views' => resource_path('views/vendor/purchaseorder'),
         ], 'pos-views');
@@ -83,6 +89,7 @@ class PurchaseOrderServiceProvider extends ServiceProvider
                 \PurchaseOrder\Nova\CurrencyRate::class,
             ]);
         }
+
         $this->publishes([
             __DIR__ . '/config/purchaseorder.php' => config_path('purchaseorder.php'),
             __DIR__ . '/database/migrations' => database_path('migrations'),
@@ -97,7 +104,6 @@ class PurchaseOrderServiceProvider extends ServiceProvider
             __DIR__ . '/routes' => base_path('routes/vendor/purchaseorder'),
             __DIR__ . '/Http/Controllers' => app_path('Http/Controllers/PurchaseOrder'),
         ], 'pos-test');
-
     }
 
     public function register(): void
