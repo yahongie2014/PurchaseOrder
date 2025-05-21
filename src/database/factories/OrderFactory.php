@@ -4,6 +4,9 @@ namespace PurchaseOrder\Database\Factories;
 
 use PurchaseOrder\Models\Order;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use PurchaseOrder\Models\User;
+use PurchaseOrder\Models\Cashier;
+use PurchaseOrder\Models\Customer;
 
 class OrderFactory extends Factory
 {
@@ -13,9 +16,9 @@ class OrderFactory extends Factory
     {
         return [
             'order_number' => $this->faker->unique()->bothify('ORD-####'),
-            'user_id' => null,
-            'cashier_id' => null,
-            'customer_id' => null,
+            'user_id' => User::factory(),
+            'cashier_id' => Cashier::factory(),
+            'customer_id' => Customer::factory(),
             'subtotal' => $this->faker->randomFloat(2, 50, 1000),
             'discount_amount' => $this->faker->randomFloat(2, 0, 100),
             'tax_amount' => $this->faker->randomFloat(2, 0, 200),

@@ -12,7 +12,7 @@ class BrandDetailFactory extends Factory
     public function definition()
     {
         return [
-            'brand_id' => null, // associate manually or in seeder
+            'brand_id' => \PurchaseOrder\Models\Brand::factory(),
             'locale' => $this->faker->randomElement(['en', 'ar']),
             'name' => $this->faker->company(),
             'description' => $this->faker->sentence(),

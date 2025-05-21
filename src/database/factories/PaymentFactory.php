@@ -4,6 +4,7 @@ namespace PurchaseOrder\Database\Factories;
 
 use PurchaseOrder\Models\Payment;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use PurchaseOrder\Models\Order;
 
 class PaymentFactory extends Factory
 {
@@ -12,7 +13,7 @@ class PaymentFactory extends Factory
     public function definition()
     {
         return [
-            'order_id' => null,
+            'order_id' => Order::factory(),
             'method' => $this->faker->randomElement(['cash', 'credit_card', 'paypal']),
             'amount' => $this->faker->randomFloat(2, 10, 1000),
             'reference' => $this->faker->uuid(),

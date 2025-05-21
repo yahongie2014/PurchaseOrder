@@ -12,7 +12,7 @@ class CategoryDetailFactory extends Factory
     public function definition()
     {
         return [
-            'category_id' => null,
+            'category_id' => Category::factory(),
             'locale' => $this->faker->randomElement(['en', 'ar']),
             'name' => $this->faker->word(),
             'description' => $this->faker->sentence(),

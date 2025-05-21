@@ -4,6 +4,8 @@ namespace PurchaseOrder\Database\Factories;
 
 use PurchaseOrder\Models\Product;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use PurchaseOrder\Models\Brand;
+use PurchaseOrder\Models\Category;
 
 class ProductFactory extends Factory
 {
@@ -26,10 +28,10 @@ class ProductFactory extends Factory
             'length' => $this->faker->randomFloat(2, 0.1, 100),
             'width' => $this->faker->randomFloat(2, 0.1, 100),
             'height' => $this->faker->randomFloat(2, 0.1, 100),
-            'brand_id' => null,
+            'brand_id' => Brand::factory(),
             'cover_img' => null,
             'tags' => [],
-            'category_id' => null,
+            'category_id' => Category::factory(),
             'synced_at' => now(),
             'is_active' => true,
             'description' => $this->faker->sentence(),

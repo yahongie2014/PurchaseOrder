@@ -4,6 +4,8 @@ namespace PurchaseOrder\Database\Factories;
 
 use PurchaseOrder\Models\OrderItem;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use PurchaseOrder\Models\Order;
+use PurchaseOrder\Models\Product;
 
 class OrderItemFactory extends Factory
 {
@@ -12,8 +14,8 @@ class OrderItemFactory extends Factory
     public function definition()
     {
         return [
-            'order_id' => null,
-            'product_id' => null,
+            'order_id' => Order::factory(),
+            'product_id' => Product::factory(),
             'product_name' => $this->faker->word(),
             'qty' => $this->faker->numberBetween(1, 10),
             'unit_price' => $this->faker->randomFloat(2, 5, 100),
