@@ -2,9 +2,9 @@
 
 namespace Database\Factories;
 
-use PurchaseOrder\Models\ProductDetail;
+use App\Models\PurchaseOrder\ProductDetail;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use PurchaseOrder\Models\Product;
+use App\Models\PurchaseOrder\Product;
 
 class ProductDetailFactory extends Factory
 {

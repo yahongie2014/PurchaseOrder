@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use PurchaseOrder\Models\SyncLog;
+use App\Models\PurchaseOrder\SyncLog;
 
 class SyncLogSeeder extends Seeder
 {

@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use PurchaseOrder\Models\Category;
+use App\Models\PurchaseOrder\Category;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class CategoryFactory extends Factory

@@ -2,9 +2,9 @@
 
 namespace Database\Factories;
 
-use PurchaseOrder\Models\ProductImage;
+use App\Models\PurchaseOrder\ProductImage;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use PurchaseOrder\Models\Product;
+use App\Models\PurchaseOrder\Product;
 
 class ProductImageFactory extends Factory
 {

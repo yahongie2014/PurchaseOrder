@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use PurchaseOrder\Models\CategoryDetail;
+use App\Models\PurchaseOrder\CategoryDetail;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class CategoryDetailFactory extends Factory
@@ -12,7 +12,7 @@ class CategoryDetailFactory extends Factory
     public function definition()
     {
         return [
-            'category_id' => \PurchaseOrder\Models\Category::factory(),
+            'category_id' => \App\Models\PurchaseOrder\Category::factory(),
             'locale' => $this->faker->randomElement(['en', 'ar']),
             'name' => $this->faker->word(),
             'description' => $this->faker->sentence(),

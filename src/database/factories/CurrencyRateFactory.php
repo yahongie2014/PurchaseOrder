@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use PurchaseOrder\Models\CurrencyRate;
+use App\Models\PurchaseOrder\CurrencyRate;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class CurrencyRateFactory extends Factory

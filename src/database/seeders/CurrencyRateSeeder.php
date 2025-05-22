@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use PurchaseOrder\Models\CurrencyRate;
+use App\Models\PurchaseOrder\CurrencyRate;
 
 class CurrencyRateSeeder extends Seeder
 {

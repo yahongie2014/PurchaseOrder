@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use PurchaseOrder\Models\ProductImage;
+use App\Models\PurchaseOrder\ProductImage;
 
 class ProductImageSeeder extends Seeder
 {

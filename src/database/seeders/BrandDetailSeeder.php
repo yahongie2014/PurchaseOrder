@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\PurchaseOrder\BrandDetail;
 use Illuminate\Database\Seeder;
-use PurchaseOrder\Models\BrandDetail;
 
 class BrandDetailSeeder extends Seeder
 {

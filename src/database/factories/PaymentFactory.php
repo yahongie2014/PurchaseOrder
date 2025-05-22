@@ -2,9 +2,9 @@
 
 namespace Database\Factories;
 
-use PurchaseOrder\Models\Payment;
+use App\Models\PurchaseOrder\Payment;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use PurchaseOrder\Models\Order;
+use App\Models\PurchaseOrder\Order;
 
 class PaymentFactory extends Factory
 {
