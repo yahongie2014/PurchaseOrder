@@ -1,7 +1,7 @@
 {
   "name": "yahongie2014/purchase-order",
-  "version": "1.6",
-  "description": "Reusable Laravel package",
+  "version": "1.8",
+  "description": "ecommerce live system with interactive redis connection",
   "type": "library",
   "license": "MIT",
   "authors": [
