@@ -12,7 +12,7 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Payment extends Resource
 {
-    public static $model = \PurchaseOrder\Models\Payment::class;
+    public static $model = \App\Models\PurchaseOrder\Payment::class;
 
     public static $title = 'method';
 

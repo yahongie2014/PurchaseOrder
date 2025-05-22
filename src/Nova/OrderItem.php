@@ -10,7 +10,7 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 
 class OrderItem extends Resource
 {
-    public static $model = \PurchaseOrder\Models\OrderItem::class;
+    public static $model = \App\Models\PurchaseOrder\OrderItem::class;
 
     public static $title = 'Product';
 

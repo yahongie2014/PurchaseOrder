@@ -1,6 +1,6 @@
 <?php
 
-namespace PurchaseOrder\Models;
+namespace App\Models\PurchaseOrder;
 
 use Illuminate\Database\Eloquent\Model;
 use PurchaseOrder\Events\OrderUpdated;

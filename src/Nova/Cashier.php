@@ -10,7 +10,7 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Cashier extends Resource
 {
-    public static $model = \PurchaseOrder\Models\Cashier::class;
+    public static $model = \App\Models\PurchaseOrder\Cashier::class;
 
     public static $title = 'name';
 

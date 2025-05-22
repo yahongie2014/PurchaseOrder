@@ -5,7 +5,6 @@ namespace App\Nova\PurchaseOrder;
 use App\Nova\PurchaseOrder\Actions\ToggleActiveStatus;
 use App\Nova\PurchaseOrder\Filters\IsActiveFilter;
 use Laravel\Nova\Fields\Select;
-use Laravel\Nova\Panel;
 use Laravel\Nova\Resource;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;

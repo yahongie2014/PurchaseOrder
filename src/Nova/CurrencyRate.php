@@ -10,7 +10,7 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 
 class CurrencyRate extends Resource
 {
-    public static $model = \PurchaseOrder\Models\CurrencyRate::class;
+    public static $model = \App\Models\PurchaseOrder\CurrencyRate::class;
 
     public static $title = 'currency_code';
 

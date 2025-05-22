@@ -11,7 +11,7 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Category extends Resource
 {
-    public static $model = \PurchaseOrder\Models\Category::class;
+    public static $model = \App\Models\PurchaseOrder\Category::class;
 
     public static $title = 'slug';
 

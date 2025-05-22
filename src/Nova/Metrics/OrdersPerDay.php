@@ -2,11 +2,9 @@
 
 namespace App\Nova\PurchaseOrder\Metrics;
 
-use DateTimeInterface;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Metrics\Trend;
 use Laravel\Nova\Metrics\TrendResult;
-use Laravel\Nova\Nova;
 use PurchaseOrder\Models\Order;
 
 class OrdersPerDay extends Trend

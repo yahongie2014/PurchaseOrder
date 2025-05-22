@@ -11,7 +11,7 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 
 class BrandDetail extends Resource
 {
-    public static $model = \PurchaseOrder\Models\BrandDetail::class;
+    public static $model = \App\Models\PurchaseOrder::class;
 
     public static $title = 'name';
 

@@ -11,7 +11,7 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 
 class SyncLog extends Resource
 {
-    public static $model = \PurchaseOrder\Models\SyncLog::class;
+    public static $model = \App\Models\PurchaseOrder\SyncLog::class;
 
     public static $title = 'entity_type';
 

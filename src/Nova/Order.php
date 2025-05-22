@@ -16,7 +16,7 @@ use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Illuminate\Http\Request;
 
-use PurchaseOrder\Models\Order as OrderModel;
+use App\Models\PurchaseOrder\Order as OrderModel;
 
 class Order extends Resource
 {

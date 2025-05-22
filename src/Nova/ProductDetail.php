@@ -12,7 +12,7 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 
 class ProductDetail extends Resource
 {
-    public static $model = \PurchaseOrder\Models\ProductDetail::class;
+    public static $model = \App\Models\PurchaseOrder\ProductDetail::class;
 
     public static $title = 'name';
 

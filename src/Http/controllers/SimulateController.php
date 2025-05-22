@@ -5,10 +5,10 @@ namespace PurchaseOrder\Http\Controllers;
 use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use PurchaseOrder\Models\Product;
-use PurchaseOrder\Models\Order;
-use PurchaseOrder\Models\OrderItem;
-use PurchaseOrder\Models\Customer;
+use App\Models\PurchaseOrder\Product;
+use App\Models\PurchaseOrder\Order;
+use App\Models\PurchaseOrder\OrderItem;
+use App\Models\PurchaseOrder\Customer;
 
 class SimulateController extends Controller
 {

@@ -13,7 +13,7 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 class ProductImage extends Resource
 {
 
-    public static $model = \PurchaseOrder\Models\ProductImage::class;
+    public static $model = \App\Models\PurchaseOrder\ProductImage::class;
 
     public static $title = 'url';
 

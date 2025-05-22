@@ -10,7 +10,7 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Customer extends Resource
 {
-    public static $model = \PurchaseOrder\Models\Customer::class;
+    public static $model = \App\Models\PurchaseOrder\Customer::class;
 
     public static $title = 'name';
 
