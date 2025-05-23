@@ -2,12 +2,12 @@
 
 namespace Database\Factories;
 
-use App\Models\PurchaseOrder\SyncLog;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Carbon\Carbon;
 
 class SyncLogFactory extends Factory
 {
-    protected $model = SyncLog::class;
+    protected $model = \App\Models\PurchaseOrder\SyncLog::class;
 
     public function definition()
     {
@@ -15,7 +15,7 @@ class SyncLogFactory extends Factory
             'entity_type' => $this->faker->word(),
             'entity_id' => $this->faker->randomNumber(),
             'status' => $this->faker->randomElement(['pending', 'synced', 'failed']),
-            'synced_at' => $this->faker->dateTimeBetween('-1 month', 'now'),
+            'synced_at' => Carbon::now(),
             'response_data' => ['message' => $this->faker->sentence()],
         ];
     }

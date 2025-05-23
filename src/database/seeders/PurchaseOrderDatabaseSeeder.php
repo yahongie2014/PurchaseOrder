@@ -22,6 +22,7 @@ class PurchaseOrderDatabaseSeeder extends Seeder
             ProductDetailSeeder::class,
             ProductImageSeeder::class,
             SyncLogSeeder::class,
+            LanguagesSeeder::class,
         ]);
     }
 }

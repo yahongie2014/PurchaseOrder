@@ -14,6 +14,7 @@ class CategoryFactory extends Factory
         return [
             'slug' => $this->faker->unique()->slug(),
             'is_active' => $this->faker->boolean(90),
+            'translation' => null,
             'cover_img' => null,
         ];
     }

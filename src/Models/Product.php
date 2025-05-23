@@ -14,8 +14,6 @@ class Product extends Model
 {
     use HasTranslations, HasFactory;
 
-    public $translatable = ['name', 'description'];
-
     protected $table = 'products';
 
     protected $dispatchesEvents = [
@@ -40,6 +38,7 @@ class Product extends Model
         'height' => 'float',
         'is_sale' => 'boolean',
         'is_taxable' => 'boolean',
+        'translation' => 'array',
         'is_active' => 'boolean',
     ];
 
@@ -73,19 +72,61 @@ class Product extends Model
         return $this->hasMany(ProductDetail::class);
     }
 
-    public function detail()
+
+    public function getName($locale = null)
     {
-        return $this->hasOne(ProductDetail::class)->where('locale', app()->getLocale());
+        $locale = $locale ?: app()->getLocale();
+        if (!is_array($this->translation)) {
+            return null;
+        }
+        $translation = [];
+
+        foreach ($this->translation as $item) {
+            if (!isset($item['fields']['locale'])) {
+                continue;
+            }
+            $loc = $item['fields']['locale'];
+            $translation[$loc] = [
+                'name' => $item['fields']['name'] ?? null,
+                'description' => $item['fields']['description'] ?? null,
+            ];
+        }
+
+        return $translation[$locale]['name'] ?? null;
     }
+
+    public function getDescription($locale = null)
+    {
+        $locale = $locale ?: app()->getLocale();
+
+        if (!is_array($this->translation)) {
+            return null;
+        }
+        $translation = [];
+
+        foreach ($this->translation as $item) {
+            if (!isset($item['fields']['locale'])) {
+                continue;
+            }
+            $loc = $item['fields']['locale'];
+            $translation[$loc] = [
+                'name' => $item['fields']['name'] ?? null,
+                'description' => $item['fields']['description'] ?? null,
+            ];
+        }
+
+        return $translation[$locale]['description'] ?? null;
+    }
+
 
     public function getNameAttribute()
     {
-        return $this->detail?->name;
+        return $this->getName(app()->getLocale());
     }
 
     public function getDescriptionAttribute()
     {
-        return $this->detail?->description;
+        return $this->getDescription(app()->getLocale());
     }
 
     public function getUnitTranslatedAttribute(): string

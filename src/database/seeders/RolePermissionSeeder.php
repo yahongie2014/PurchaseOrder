@@ -15,6 +15,13 @@ class RolePermissionSeeder extends Seeder
 
         // Define all permissions
         $permissions = [
+            // languages
+            'view languages',
+            'create languages',
+            'update languages',
+            'delete languages',
+            'export languages',
+
             // Orders
             'view orders',
             'create orders',

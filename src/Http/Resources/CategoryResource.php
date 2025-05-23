@@ -11,8 +11,8 @@ class CategoryResource extends JsonResource
         return [
             'id' => $this->id,
             'slug' => $this->slug,
-            'name' => $this->name,
-            'description' => $this->description,
+            'name' => $this->getName($request->get('locale', app()->getLocale())),
+            'description' => $this->getDescription($request->get('locale', app()->getLocale())),
             'is_active' => $this->is_active,
             'details' => CategoryDetailResource::collection($this->whenLoaded('details')),
             'products' => ProductResource::collection($this->whenLoaded('products')),

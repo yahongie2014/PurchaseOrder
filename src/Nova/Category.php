@@ -2,11 +2,12 @@
 
 namespace App\Nova\PurchaseOrder;
 
+use App\Nova\Repeaters\LanguageRepeate;
+use Laravel\Nova\Fields\Repeater;
 use Laravel\Nova\Resource;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Boolean;
-use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Illuminate\Support\Str;
@@ -30,6 +31,10 @@ class Category extends Resource
                 ->creationRules('required', 'image', 'max:2048')
                 ->updateRules('nullable', 'image', 'max:2048'),
 
+            Repeater::make('Translation')
+                ->repeatables([
+                    LanguageRepeate::make(),
+                ])->showOnDetail(),
             Text::make('Slug')
                 ->sortable()
                 ->rules('required', 'max:255')
@@ -43,9 +48,6 @@ class Category extends Resource
                 }),
 
             Boolean::make('Is Active'),
-
-            HasMany::make('Details', 'details', CategoryDetail::class)->hideWhenCreating()->hideWhenUpdating(),
-//          HasMany::make('Products', 'products', Product::class),
         ];
     }
 }

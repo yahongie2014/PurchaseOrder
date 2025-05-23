@@ -14,5 +14,6 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(\Database\Seeders\PurchaseOrderDatabaseSeeder::class);
         $this->call(\Database\Seeders\RolePermissionSeeder::class);
+        $this->call(InsertRole::class);
     }
 }

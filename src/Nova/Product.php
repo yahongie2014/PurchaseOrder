@@ -4,6 +4,8 @@ namespace App\Nova\PurchaseOrder;
 
 use App\Nova\PurchaseOrder\Actions\ToggleActiveStatus;
 use App\Nova\PurchaseOrder\Filters\IsActiveFilter;
+use App\Nova\Repeaters\LanguageRepeate;
+use Laravel\Nova\Fields\Repeater;
 use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Resource;
 use Laravel\Nova\Fields\ID;
@@ -25,7 +27,6 @@ class Product extends Resource
 
     public function fields(NovaRequest $request)
     {
-        $locales = config('app.locales', ['en', 'ar']);
 
         return [
             ID::make()->sortable(),
@@ -40,6 +41,10 @@ class Product extends Resource
                         $model->{$attribute} = 'PROD-' . strtoupper(Str::random(8));
                     }
                 }),
+            Repeater::make('Translation')
+                ->repeatables([
+                    LanguageRepeate::make(),
+                ])->showOnDetail(),
             Text::make('Barcode')->nullable(),
             Number::make('Original Price')->step(0.01),
             Number::make('Cost Price')->step(0.01),
@@ -67,7 +72,6 @@ class Product extends Resource
             HasMany::make('Images', 'images', ProductImage::class),
             HasMany::make('Order Items', 'orderItems', OrderItem::class),
             Boolean::make('Is Active'),
-            HasMany::make('Details', 'details', ProductDetail::class)->hideWhenCreating()->hideWhenUpdating(),
         ];
     }
 

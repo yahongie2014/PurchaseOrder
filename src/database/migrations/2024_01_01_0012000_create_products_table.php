@@ -11,6 +11,7 @@ return new class extends Migration {
             $table->id();
             // Unique Identifiers
             $table->string('sku')->unique();
+            $table->json('translation')->nullable();
             $table->string('barcode')->nullable();
             $table->decimal('original_price', 10, 2);
             $table->decimal('cost_price', 10, 2)->nullable();
@@ -32,7 +33,6 @@ return new class extends Migration {
             $table->foreign('category_id')->references('id')->on('categories')->nullOnDelete();
             $table->timestamp('synced_at')->nullable();
             $table->boolean('is_active')->default(true);
-
             $table->timestamps();
         });
     }

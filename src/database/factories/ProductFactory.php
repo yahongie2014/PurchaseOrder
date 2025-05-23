@@ -15,6 +15,7 @@ class ProductFactory extends Factory
     {
         return [
             'sku' => $this->faker->unique()->bothify('SKU-####'),
+            'translation' => null,
             'barcode' => $this->faker->ean13(),
             'original_price' => $this->faker->randomFloat(2, 10, 100),
             'cost_price' => $this->faker->randomFloat(2, 5, 80),

@@ -9,6 +9,7 @@ use App\Nova\PurchaseOrder\Category;
 use App\Nova\PurchaseOrder\CategoryDetail;
 use App\Nova\PurchaseOrder\CurrencyRate;
 use App\Nova\PurchaseOrder\Customer;
+use App\Nova\PurchaseOrder\Language;
 use App\Nova\PurchaseOrder\Order;
 use App\Nova\PurchaseOrder\OrderItem;
 use App\Nova\PurchaseOrder\Payment;
@@ -49,6 +50,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
             ProductImage::class,
             SyncLog::class,
             CurrencyRate::class,
+            Language::class,
         ]);
 
         Nova::mainMenu(function ($request) {
@@ -77,9 +79,10 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                     MenuSection::resource(UserAddress::class)->icon('location-marker'),
                 ])->icon('users')->collapsible(),
 
-                MenuSection::make('Logs', [
+                MenuSection::make('Settings', [
+                    MenuSection::resource(Language::class)->icon('language'),
                     MenuSection::resource(SyncLog::class)->icon('exclamation-triangle'),
-                ])->icon('clipboard-list')->collapsible(),
+                ])->icon('cog')->collapsible(),
 
             ];
         });

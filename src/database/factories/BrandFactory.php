@@ -14,6 +14,7 @@ class BrandFactory extends Factory
         return [
             'slug' => $this->faker->unique()->slug(),
             'logo' => null,
+            'translation' => null,
             'is_active' => $this->faker->boolean(90),
         ];
     }
