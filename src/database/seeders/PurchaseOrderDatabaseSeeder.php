@@ -10,16 +10,13 @@ class PurchaseOrderDatabaseSeeder extends Seeder
     {
         $this->call([
             BrandSeeder::class,
-            BrandDetailSeeder::class,
             CashierSeeder::class,
             CategorySeeder::class,
-            CategoryDetailSeeder::class,
             CurrencyRateSeeder::class,
             CustomerSeeder::class,
             OrderSeeder::class,
             OrderItemSeeder::class,
             PaymentSeeder::class,
-            ProductDetailSeeder::class,
             ProductImageSeeder::class,
             SyncLogSeeder::class,
             LanguagesSeeder::class,
