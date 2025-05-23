@@ -39,9 +39,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
         Nova::resources([
             Product::class,
             Brand::class,
-            BrandDetail::class,
             Category::class,
-            CategoryDetail::class,
             Cashier::class,
             Customer::class,
             Order::class,

@@ -16,7 +16,7 @@ class CategoryResource extends JsonResource
             'is_active' => $this->is_active,
             'details' => CategoryDetailResource::collection($this->whenLoaded('details')),
             'products' => ProductResource::collection($this->whenLoaded('products')),
-            'cover_img_url' => $this->cover_img_url,
+            'cover_img_url' => $this->cover_img_url ? asset('storage/categories/' . $this->cover_img_url) : null,
         ];
     }
 }

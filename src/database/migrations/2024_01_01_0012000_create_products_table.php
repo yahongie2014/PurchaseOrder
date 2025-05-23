@@ -20,14 +20,14 @@ return new class extends Migration {
             $table->integer('stock_quantity')->default(0);
             $table->decimal('tax_rate', 5, 2)->nullable();
             $table->boolean('is_taxable')->default(true);
-            $table->string('unit')->default('pcs'); // pcs, kg, liter, etc.
+            $table->string('unit')->default('pcs');
             $table->decimal('weight', 10, 2)->nullable();
             $table->decimal('length', 10, 2)->nullable();
             $table->decimal('width', 10, 2)->nullable();
             $table->decimal('height', 10, 2)->nullable();
             $table->unsignedBigInteger('brand_id')->nullable();
             $table->foreign('brand_id')->references('id')->on('brands')->nullOnDelete();
-            $table->string('cover_img')->nullable(); // image path or URL
+            $table->string('cover_img')->nullable();
             $table->json('tags')->nullable();
             $table->unsignedBigInteger('category_id')->nullable();
             $table->foreign('category_id')->references('id')->on('categories')->nullOnDelete();

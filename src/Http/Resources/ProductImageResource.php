@@ -11,9 +11,7 @@ class ProductImageResource extends JsonResource
         return [
             'id' => $this->id,
             'product_id' => $this->product_id,
-            'url' => $this->url,
-            'full_url' => $this->full_url,
-            'position' => $this->position,
+            'url' => $this->url ? asset('storage/product_images/' . $this->url) : null,
             'type' => $this->type,
         ];
     }

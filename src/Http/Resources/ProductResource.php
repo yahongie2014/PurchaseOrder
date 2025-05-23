@@ -31,7 +31,7 @@ class ProductResource extends JsonResource
             'category' => new CategoryResource($this->whenLoaded('category')),
             'images' => ProductImageResource::collection($this->whenLoaded('images')),
             'tags' => $this->tags,
-            'cover_img_url' => $this->cover_img_url,
+            'cover_img_url' => $this->cover_img_url ? asset('storage/product_covers/' . $this->cover_img_url) : null,
             'synced_at' => $this->synced_at,
             'is_active' => $this->is_active,
             'description' => $this->description,

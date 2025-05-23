@@ -13,8 +13,8 @@ return [
     ],
 
     'redis' => [
-        'channel_orders' => env('PURCHASEORDER_REDIS_CHANNEL_ORDERS', 'purchaseorder-orders'),
-        'channel_products' => env('PURCHASEORDER_REDIS_CHANNEL_PRODUCTS', 'purchaseorder-products'),
+        'channel_orders' => env('POS_REDIS_CHANNEL_ORDERS', 'pos-orders'),
+        'channel_products' => env('POS_REDIS_CHANNEL_PRODUCTS', 'pos-products'),
     ],
 
 ];

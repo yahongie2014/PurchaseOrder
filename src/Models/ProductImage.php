@@ -16,10 +16,6 @@ class ProductImage extends Model
         'product_id', 'url', 'type'
     ];
 
-    protected $casts = [
-        'position' => 'integer',
-    ];
-
     protected static function newFactory()
     {
         return \Database\Factories\ProductImageFactory::new();

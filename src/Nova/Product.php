@@ -2,6 +2,7 @@
 
 namespace App\Nova\PurchaseOrder;
 
+use Laravel\Nova\Fields\Image;
 use App\Nova\PurchaseOrder\Actions\ToggleActiveStatus;
 use App\Nova\PurchaseOrder\Filters\IsActiveFilter;
 use App\Nova\Repeaters\LanguageRepeate;
@@ -63,6 +64,11 @@ class Product extends Resource
                 ])
                 ->nullable()
                 ->displayUsingLabels(),
+            Image::make('Cover Image', 'cover_img_url')
+                ->disk('public')
+                ->path('product_covers')
+                ->creationRules('required', 'image', 'max:2048')
+                ->updateRules('nullable', 'image', 'max:2048'),
             Number::make('Weight')->step(0.01),
             Number::make('Length')->step(0.01),
             Number::make('Width')->step(0.01),

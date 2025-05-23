@@ -63,6 +63,10 @@ class PurchaseOrderServiceProvider extends ServiceProvider
             __DIR__ . '/Http/Controllers' => app_path('Http/Controllers/PurchaseOrder'),
         ], 'pos-controllers');
 
+        $this->publishes([
+            __DIR__ . '/Http/Resources' => app_path('Http/Resources/PurchaseOrder'),
+        ], 'pos-api-resources');
+
         Broadcast::channel(config('purchaseorder.redis.channel_orders'), function ($user) {
             return true;
         });
@@ -86,6 +90,7 @@ class PurchaseOrderServiceProvider extends ServiceProvider
             __DIR__ . '/resources/lang' => resource_path('lang/vendor/purchase-order'),
             __DIR__ . '/Models' => app_path('Models/PurchaseOrder'),
             __DIR__ . '/Policies' => app_path('Policies'),
+            __DIR__ . '/Http/Resources' => app_path('Http/Resources/PurchaseOrder'),
         ], 'pos-all');
 
         $this->publishes([

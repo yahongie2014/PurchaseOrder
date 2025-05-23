@@ -254,8 +254,8 @@ The package uses Redis broadcast channels to push real-time updates for orders a
 
 ```php
 'redis' => [
-    'channel_orders' => 'purchaseorder-orders',
-    'channel_products' => 'purchaseorder-products',
+    'channel_orders' => 'pos-orders',
+    'channel_products' => 'pos-products',
 ],
 ```
 

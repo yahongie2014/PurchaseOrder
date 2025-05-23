@@ -27,7 +27,7 @@ class ProductImage extends Resource
             BelongsTo::make('Product'),
             Image::make('Image', 'url')
                 ->disk('public')
-                ->path('categories')
+                ->path('product_images')
                 ->creationRules('required', 'image', 'max:2048')
                 ->updateRules('nullable', 'image', 'max:2048'),
             Select::make('Type')
