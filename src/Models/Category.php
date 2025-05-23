@@ -27,11 +27,6 @@ class Category extends Model
         return \Database\Factories\CategoryFactory::new();
     }
 
-    public function details()
-    {
-        return $this->hasMany(CategoryDetail::class);
-    }
-
     public function getName($locale = null)
     {
         $locale = $locale ?: app()->getLocale();
