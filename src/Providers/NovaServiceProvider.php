@@ -3,13 +3,18 @@
 namespace App\Providers;
 
 use App\Nova\PurchaseOrder\Brand;
+use App\Nova\PurchaseOrder\BrandDetail;
+use App\Nova\PurchaseOrder\Cashier;
 use App\Nova\PurchaseOrder\Category;
+use App\Nova\PurchaseOrder\CategoryDetail;
 use App\Nova\PurchaseOrder\CurrencyRate;
 use App\Nova\PurchaseOrder\Customer;
 use App\Nova\PurchaseOrder\Order;
+use App\Nova\PurchaseOrder\OrderItem;
 use App\Nova\PurchaseOrder\Payment;
 use App\Nova\PurchaseOrder\Permission;
 use App\Nova\PurchaseOrder\Product;
+use App\Nova\PurchaseOrder\ProductImage;
 use App\Nova\PurchaseOrder\Role;
 use App\Nova\PurchaseOrder\SyncLog;
 use App\Nova\PurchaseOrder\UserAddress;

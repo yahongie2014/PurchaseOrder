@@ -38,29 +38,39 @@ class Permission extends Resource
     // Must be static and accept Illuminate\Http\Request
     public static function authorizedToViewAny(Request $request)
     {
-        return $request->user()->hasRole('admin');
+        $user = $request->user();
+
+        return $user && $user->hasRole('admin');
     }
 
     // Instance method, no static, accepts Illuminate\Http\Request
     public function authorizedToView(Request $request)
     {
-        return $request->user()->hasRole('admin');
+        $user = $request->user();
+
+        return $user && $user->hasRole('admin');
     }
 
     public function authorizedToUpdate(Request $request)
     {
-        return $request->user()->hasRole('admin');
+        $user = $request->user();
+
+        return $user && $user->hasRole('admin');
     }
 
     public function authorizedToDelete(Request $request)
     {
-        return $request->user()->hasRole('admin');
+        $user = $request->user();
+
+        return $user && $user->hasRole('admin');
     }
 
     // Optionally restrict navigation
     public static function availableForNavigation(Request $request)
     {
-        return $request->user()->hasRole('admin');
+        $user = $request->user();
+
+        return $user && $user->hasRole('admin');
     }
 
 }
