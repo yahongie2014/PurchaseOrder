@@ -2,6 +2,7 @@
 
 namespace App\Nova\PurchaseOrder;
 
+use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Resource;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
@@ -22,7 +23,7 @@ class Cashier extends Resource
             ID::make()->sortable(),
 
             Text::make('Name')->sortable()->rules('required', 'max:255'),
-
+            BelongsTo::make('User', 'user', \App\Nova\User::class)->searchable(),
             HasMany::make('Orders', 'orders', Order::class),
         ];
     }

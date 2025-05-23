@@ -74,6 +74,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                 MenuSection::make('User Management', [
                     MenuSection::resource(User::class)->icon('user-plus'),
                     MenuSection::resource(Customer::class)->icon('user-group'),
+                    MenuSection::resource(Cashier::class)->icon('currency-dollar'),
                     MenuSection::resource(UserAddress::class)->icon('location-marker'),
                 ])->icon('users')->collapsible(),
 

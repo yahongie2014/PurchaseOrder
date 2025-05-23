@@ -69,6 +69,7 @@ class Language extends Resource
     {
         return [];
     }
+
     public static function authorizedToViewAny(Request $request)
     {
         $user = $request->user();
@@ -84,24 +85,16 @@ class Language extends Resource
         return $user && $user->hasRole('admin');
     }
 
+    public static function authorizedToCreate(Request $request)
+    {
+        $user = $request->user();
+
+        return $user && $user->hasRole('admin');
+    }
+
     public function authorizedToUpdate(Request $request)
     {
         $user = $request->user();
-
-        return $user && $user->hasRole('admin');
-    }
-
-    public function authorizedToDelete(Request $request)
-    {
-        $user = $request->user();
-
-        return $user && $user->hasRole('admin');
-    }
-
-    public static function availableForNavigation(Request $request)
-    {
-        $user = $request->user();
-
         return $user && $user->hasRole('admin');
     }
 
