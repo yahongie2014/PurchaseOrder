@@ -2,6 +2,7 @@
 
 namespace App\Nova\PurchaseOrder;
 
+use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Resource;
 use Laravel\Nova\Fields\ID;
@@ -23,20 +24,18 @@ class ProductImage extends Resource
     {
         return [
             ID::make()->sortable(),
-
             BelongsTo::make('Product'),
-
+            Image::make('Image', 'url')
+                ->disk('public')
+                ->path('categories')
+                ->creationRules('required', 'image', 'max:2048')
+                ->updateRules('nullable', 'image', 'max:2048'),
             Select::make('Type')
-                ->options([
-                    'url' => 'URL',
-                    'image' => 'Image',
-                ])
-                ->displayUsingLabels()
-                ->rules('required'),
+                ->options(['thumbnail' => 'Thumbnail', 'gallery' => 'Gallery', 'icon' => 'Icon'])
+                ->creationRules('required')
+                ->updateRules('nullable')
+                ->displayUsingLabels(),
 
-            Number::make('Position')->nullable(),
-
-            Text::make('Type')->nullable(),
         ];
     }
 }

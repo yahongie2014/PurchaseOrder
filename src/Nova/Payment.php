@@ -22,15 +22,10 @@ class Payment extends Resource
     {
         return [
             ID::make()->sortable(),
-
             BelongsTo::make('Order'),
-
             Text::make('Method')->sortable()->rules('required', 'max:255'),
-
             Number::make('Amount')->step(0.01),
-
             Text::make('Reference')->nullable(),
-
             DateTime::make('Paid At')->nullable(),
         ];
     }

@@ -20,19 +20,12 @@ class OrderItem extends Resource
     {
         return [
             ID::make()->sortable(),
-
             BelongsTo::make('Order', 'order', Order::class)->nullable(),
-
             BelongsTo::make('Product', 'product', Product::class)->nullable(),
-
             Number::make('Quantity', 'qty'),
-
             Number::make('Unit Price')->step(0.01),
-
             Number::make('Discount Amount')->step(0.01),
-
             Number::make('Tax Amount')->step(0.01),
-
             Number::make('Total Price')->step(0.01),
         ];
     }

@@ -20,8 +20,8 @@ class PaymentStatusFilter extends Filter
         return [
             'Paid' => 'paid',
             'Pending' => 'pending',
-            'Failed' => 'failed',
-            'Cancelled' => 'cancelled',
+            'Rejected' => 'rejected',
+            'Partial' => 'partial',
         ];
     }
 }

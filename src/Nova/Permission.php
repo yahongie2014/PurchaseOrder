@@ -3,35 +3,39 @@
 namespace App\Nova\PurchaseOrder;
 
 use Illuminate\Http\Request;
-use Laravel\Nova\Fields\Code;
 use Laravel\Nova\Resource;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\DateTime;
+use Laravel\Nova\Fields\BelongsToMany;
+use Spatie\Permission\Models\Permission as PermissionModel;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use App\Nova\User;
 
-class SyncLog extends Resource
+class Permission extends Resource
 {
-    public static $model = \App\Models\PurchaseOrder\SyncLog::class;
+    public static $model = PermissionModel::class;
 
-    public static $title = 'entity_type';
+    public static $title = 'name';
 
-    public static $search = ['id', 'entity_type', 'status'];
+    public static $search = [
+        'id', 'name'
+    ];
 
     public function fields(NovaRequest $request)
     {
         return [
             ID::make()->sortable(),
-            Text::make('Entity Type')->sortable(),
-            Text::make('Entity ID')->sortable(),
-            Text::make('Status')->sortable(),
-            DateTime::make('Synced At')->nullable(),
-            Code::make('Response Data')->json()->hideFromIndex(),
-            DateTime::make('Created At')->sortable(),
-            DateTime::make('Updated At')->sortable(),
+
+            Text::make('Name')
+                ->rules('required', 'max:255')
+                ->sortable(),
+
+            BelongsToMany::make('Roles', 'roles', Role::class),
+            BelongsToMany::make('Users', 'users', User::class),
         ];
     }
 
+    // Must be static and accept Illuminate\Http\Request
     public static function authorizedToViewAny(Request $request)
     {
         return $request->user()->hasRole('admin');
@@ -53,6 +57,7 @@ class SyncLog extends Resource
         return $request->user()->hasRole('admin');
     }
 
+    // Optionally restrict navigation
     public static function availableForNavigation(Request $request)
     {
         return $request->user()->hasRole('admin');

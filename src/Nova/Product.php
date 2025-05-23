@@ -17,7 +17,7 @@ use Illuminate\Http\Request;
 
 class Product extends Resource
 {
-    public static $model = \PurchaseOrder\Models\Product::class;
+    public static $model = \App\Models\PurchaseOrder\Product::class;
 
     public static $title = 'sku';
 

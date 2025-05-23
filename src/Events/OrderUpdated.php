@@ -6,7 +6,7 @@ use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Queue\SerializesModels;
-use PurchaseOrder\Models\Order;
+use App\Models\PurchaseOrder\Order;
 
 class OrderUpdated implements ShouldBroadcast
 {

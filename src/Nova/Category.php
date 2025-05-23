@@ -7,7 +7,9 @@ use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\HasMany;
+use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use Illuminate\Support\Str;
 
 class Category extends Resource
 {
@@ -21,6 +23,13 @@ class Category extends Resource
     {
         return [
             ID::make()->sortable(),
+
+            Image::make('Cover Image', 'cover_img')
+                ->disk('public')
+                ->path('categories')
+                ->creationRules('required', 'image', 'max:2048')
+                ->updateRules('nullable', 'image', 'max:2048'),
+
             Text::make('Slug')
                 ->sortable()
                 ->rules('required', 'max:255')
@@ -28,13 +37,15 @@ class Category extends Resource
                 ->fillUsing(function ($request, $model, $attribute, $requestAttribute) {
                     if ($request->input($requestAttribute)) {
                         $model->{$attribute} = $request->input($requestAttribute);
-                    } else {
+                    } elseif ($request->isCreateOrAttachRequest()) {
                         $model->{$attribute} = 'CAT-' . strtoupper(Str::random(8));
                     }
                 }),
+
             Boolean::make('Is Active'),
+
             HasMany::make('Details', 'details', CategoryDetail::class)->hideWhenCreating()->hideWhenUpdating(),
-            HasMany::make('Products', 'products', Product::class),
+//          HasMany::make('Products', 'products', Product::class),
         ];
     }
 }

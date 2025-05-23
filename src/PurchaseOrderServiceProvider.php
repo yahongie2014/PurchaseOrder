@@ -24,6 +24,10 @@ class PurchaseOrderServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__ . '/resources/views', 'purchaseorder');
 
         $this->publishes([
+            __DIR__ . '/Policies' => app_path('Policies'),
+        ], 'pos-policies');
+
+        $this->publishes([
             __DIR__ . '/resources/lang' => resource_path('lang/vendor/purchase-order'),
         ], 'pos-lang');
 
@@ -70,23 +74,8 @@ class PurchaseOrderServiceProvider extends ServiceProvider
         if (class_exists(Nova::class)) {
             $this->publishes([
                 __DIR__ . '/Nova' => app_path('Nova/PurchaseOrder'),
+                __DIR__ . '/Providers/NovaServiceProvider.php' => app_path('Providers/NovaServiceProvider.php'),
             ], 'pos-nova');
-
-            Nova::resources([
-                \App\Nova\PurchaseOrder\Product::class,
-                \App\Nova\PurchaseOrder\Brand::class,
-                \App\Nova\PurchaseOrder\BrandDetail::class,
-                \App\Nova\PurchaseOrder\Category::class,
-                \App\Nova\PurchaseOrder\CategoryDetail::class,
-                \App\Nova\PurchaseOrder\Cashier::class,
-                \App\Nova\PurchaseOrder\Customer::class,
-                \App\Nova\PurchaseOrder\Order::class,
-                \App\Nova\PurchaseOrder\OrderItem::class,
-                \App\Nova\PurchaseOrder\Payment::class,
-                \App\Nova\PurchaseOrder\ProductImage::class,
-                \App\Nova\PurchaseOrder\SyncLog::class,
-                \App\Nova\PurchaseOrder\CurrencyRate::class,
-            ]);
         }
 
         $this->publishes([
@@ -96,6 +85,7 @@ class PurchaseOrderServiceProvider extends ServiceProvider
             __DIR__ . '/database/seeders' => database_path('seeders'),
             __DIR__ . '/resources/lang' => resource_path('lang/vendor/purchase-order'),
             __DIR__ . '/Models' => app_path('Models/PurchaseOrder'),
+            __DIR__ . '/Policies' => app_path('Policies'),
         ], 'pos-all');
 
         $this->publishes([
@@ -111,7 +101,7 @@ class PurchaseOrderServiceProvider extends ServiceProvider
             __DIR__ . '/config/purchaseorder.php',
             'purchaseorder'
         );
-		
+
 
         $this->app->singleton(CurrencyConverter::class, function ($app) {
             return new CurrencyConverter();

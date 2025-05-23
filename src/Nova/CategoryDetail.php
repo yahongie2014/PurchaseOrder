@@ -3,6 +3,7 @@
 namespace App\Nova\PurchaseOrder;
 
 use Laravel\Nova\Fields\Select;
+use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Resource;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
@@ -26,10 +27,16 @@ class CategoryDetail extends Resource
             BelongsTo::make('Category'),
             Select::make('Locale')
                 ->options($locales)
-                ->rules('required', 'max:10')
+                ->creationRules('required', 'max:100')
+                ->updateRules('nullable', 'max:100')
                 ->displayUsingLabels(),
-            Text::make('Name')->rules('required', 'max:255'),
-            Text::make('Description')->hideFromIndex(),
+            Text::make('Name')
+                ->creationRules('required', 'max:255')
+                ->updateRules('required', 'max:255'),
+            Trix::make('Description')
+                ->creationRules('required', 'max:500')
+                ->updateRules('required', 'max:500')
+                ->hideFromIndex(),
         ];
     }
 }

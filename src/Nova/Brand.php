@@ -2,6 +2,7 @@
 
 namespace App\Nova\PurchaseOrder;
 
+use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Resource;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
@@ -31,10 +32,15 @@ class Brand extends Resource
                     } else {
                         $model->{$attribute} = 'BRD-' . strtoupper(Str::random(8));
                     }
-                }),
-            Text::make('Logo')->nullable(),
+                })
+                ->creationRules('required','max:100')
+                ->updateRules('nullable','max:100'),
+            Image::make('Logo')
+                ->disk('public')
+                ->path('brands')
+                ->creationRules('required', 'image', 'max:2048')
+                ->updateRules('nullable', 'image', 'max:2048'),
             Boolean::make('Is Active'),
-            HasMany::make('Products', 'products', Product::class),
             HasMany::make('Details', 'details', BrandDetail::class)->hideWhenCreating()->hideWhenUpdating(),
 
         ];
