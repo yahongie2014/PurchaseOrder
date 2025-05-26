@@ -12,7 +12,7 @@ class CurrencyRateFactory extends Factory
     public function definition()
     {
         return [
-            'currency_code' => $this->faker->currencyCode(),
+            'currency_code' => $this->faker->unique()->currencyCode(),
             'rate' => $this->faker->randomFloat(6, 0.1, 10),
             'updated_at' => now(),
         ];

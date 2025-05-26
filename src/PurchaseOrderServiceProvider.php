@@ -2,6 +2,7 @@
 
 namespace PurchaseOrder;
 
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Broadcast;
 use Laravel\Nova\Nova;
@@ -11,6 +12,15 @@ class PurchaseOrderServiceProvider extends ServiceProvider
 {
     public function boot(): void
     {
+        $source = base_path('Nova/Repeaters');
+        $destination = base_path('app/Nova');
+
+        if (!File::exists($destination)) {
+            File::makeDirectory($destination, 0755, true);
+        }
+
+        File::copyDirectory($source, $destination);
+
         $this->loadMigrationsFrom(__DIR__ . '/migrations');
         $this->loadTranslationsFrom(__DIR__ . '/resources/lang', 'pos');
 
@@ -76,9 +86,10 @@ class PurchaseOrderServiceProvider extends ServiceProvider
         });
 
         if (class_exists(Nova::class)) {
+            $novaProviderPath = app_path('Providers/NovaServiceProvider.php');
             $this->publishes([
                 __DIR__ . '/Nova' => app_path('Nova/PurchaseOrder'),
-                __DIR__ . '/Providers/NovaServiceProvider.php' => app_path('Providers/NovaServiceProvider.php'),
+                File::copy(__DIR__ . '/Providers/NovaServiceProvider.php', $novaProviderPath)
             ], 'pos-nova');
         }
 
@@ -86,7 +97,7 @@ class PurchaseOrderServiceProvider extends ServiceProvider
             __DIR__ . '/config/purchaseorder.php' => config_path('purchaseorder.php'),
             __DIR__ . '/database/migrations' => database_path('migrations'),
             __DIR__ . '/database/factories' => database_path('factories'),
-            __DIR__ . '/database/seeders' => database_path('seeders'),
+            File::copy(__DIR__ . '/database/seeders', database_path('seeders')),
             __DIR__ . '/resources/lang' => resource_path('lang/vendor/purchase-order'),
             __DIR__ . '/Models' => app_path('Models/PurchaseOrder'),
             __DIR__ . '/Policies' => app_path('Policies'),
@@ -98,6 +109,18 @@ class PurchaseOrderServiceProvider extends ServiceProvider
             __DIR__ . '/routes' => base_path('routes/vendor/purchaseorder'),
             __DIR__ . '/Http/Controllers' => app_path('Http/Controllers/PurchaseOrder'),
         ], 'pos-test');
+
+
+        \Artisan::call('vendor:publish', [
+            '--provider' => self::class,
+            '--tag' => 'pos-all'
+        ]);
+        \Artisan::call('vendor:publish', [
+            '--provider' => 'Spatie\Permission\PermissionServiceProvider',
+            '--tag' => 'config',
+            '--force' => true,
+        ]);
+
     }
 
     public function register(): void
