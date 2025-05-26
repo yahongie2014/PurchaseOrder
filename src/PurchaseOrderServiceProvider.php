@@ -89,15 +89,20 @@ class PurchaseOrderServiceProvider extends ServiceProvider
             $novaProviderPath = app_path('Providers/NovaServiceProvider.php');
             $this->publishes([
                 __DIR__ . '/Nova' => app_path('Nova/PurchaseOrder'),
-                File::copy(__DIR__ . '/Providers/NovaServiceProvider.php', $novaProviderPath)
+                File::copyDirectory(__DIR__ . '/Providers/NovaServiceProvider.php', $novaProviderPath)
             ], 'pos-nova');
         }
+        \Artisan::call('vendor:publish', [
+            '--provider' => 'Spatie\Permission\PermissionServiceProvider',
+            '--tag' => 'config',
+            '--force' => true,
+        ]);
 
         $this->publishes([
             __DIR__ . '/config/purchaseorder.php' => config_path('purchaseorder.php'),
             __DIR__ . '/database/migrations' => database_path('migrations'),
             __DIR__ . '/database/factories' => database_path('factories'),
-            File::copy(__DIR__ . '/database/seeders', database_path('seeders')),
+            File::copyDirectory(__DIR__ . '/database/seeders', database_path('database/seeders')),
             __DIR__ . '/resources/lang' => resource_path('lang/vendor/purchase-order'),
             __DIR__ . '/Models' => app_path('Models/PurchaseOrder'),
             __DIR__ . '/Policies' => app_path('Policies'),
@@ -114,11 +119,6 @@ class PurchaseOrderServiceProvider extends ServiceProvider
         \Artisan::call('vendor:publish', [
             '--provider' => self::class,
             '--tag' => 'pos-all'
-        ]);
-        \Artisan::call('vendor:publish', [
-            '--provider' => 'Spatie\Permission\PermissionServiceProvider',
-            '--tag' => 'config',
-            '--force' => true,
         ]);
 
     }
