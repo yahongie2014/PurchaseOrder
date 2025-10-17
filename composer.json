@@ -1,6 +1,6 @@
 {
   "name": "yahongie2014/purchase-order",
-  "version": "2.1",
+  "version": "2.2",
   "description": "ecommerce live system with interactive redis connection",
   "type": "library",
   "license": "MIT",
@@ -21,7 +21,7 @@
     "php": ">=7.4 <8.5",
     "spatie/laravel-translatable": "^6.0",
     "spatie/laravel-permission": "^6.18",
-    "laravel/sanctum": "^2.15 || ^3.0"
+    "laravel/sanctum": "^2.15 || ^3.0 || ^4.0"
   },
   "autoload": {
     "psr-4": {

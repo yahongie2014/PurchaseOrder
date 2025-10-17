@@ -12,14 +12,17 @@ class PurchaseOrderServiceProvider extends ServiceProvider
 {
     public function boot(): void
     {
-        $source = base_path('Nova/Repeaters');
-        $destination = base_path('app/Nova');
+        $source = __DIR__ . '/Nova/Repeaters';
+        $destination = app_path('Nova/Repeaters');
 
-        if (!File::exists($destination)) {
-            File::makeDirectory($destination, 0755, true);
+        // Only copy package repeaters if they exist in the package
+        if (File::exists($source)) {
+            if (!File::exists($destination)) {
+                File::makeDirectory($destination, 0755, true);
+            }
+
+            File::copyDirectory($source, $destination);
         }
-
-        File::copyDirectory($source, $destination);
 
         $this->loadMigrationsFrom(__DIR__ . '/migrations');
         $this->loadTranslationsFrom(__DIR__ . '/resources/lang', 'pos');
@@ -49,7 +52,7 @@ class PurchaseOrderServiceProvider extends ServiceProvider
         ], 'pos-lang');
 
         $this->publishes([
-            __DIR__ . '/database/migrations' => app_path('migrations/PurchaseOrder'),
+            __DIR__ . '/database/migrations' => database_path('migrations'),
         ], 'pos-migrations');
 
         $this->publishes([
@@ -65,7 +68,7 @@ class PurchaseOrderServiceProvider extends ServiceProvider
         ], 'pos-seeders');
 
         $this->publishes([
-            __DIR__ . '/database/factories' => database_path('factories/PurchaseOrder'),
+            __DIR__ . '/database/factories' => database_path('factories'),
         ], 'pos-factory');
 
         $this->publishes([
@@ -92,36 +95,17 @@ class PurchaseOrderServiceProvider extends ServiceProvider
             return true;
         });
 
-        if (class_exists(Nova::class)) {
-            $novaProviderPath = app_path('Providers/NovaServiceProvider.php');
-            $sourceProvider = __DIR__ . '/Providers/NovaServiceProvider.php';
-
-            // Ensure Providers directory exists
-            $providersDir = dirname($novaProviderPath);
-            if (!File::exists($providersDir)) {
-                File::makeDirectory($providersDir, 0755, true);
-            }
-
-            // If an existing NovaServiceProvider exists in the app, back it up before replacing
-            if (File::exists($novaProviderPath)) {
-                $backupPath = $novaProviderPath . '.bak.' . date('YmdHis');
-                File::move($novaProviderPath, $backupPath);
-            }
-
-            // Copy package NovaServiceProvider into the app
-            File::copy($sourceProvider, $novaProviderPath);
-
-            // Register publish mappings for Nova resources and provider
-            $this->publishes([
-                __DIR__ . '/Nova' => app_path('Nova/PurchaseOrder'),
-                $sourceProvider => $novaProviderPath,
-            ], 'pos-nova');
-        }
+        // Register publish mappings for Nova resources and provider.
+        // We do not auto-copy provider files into the application during boot.
+        $this->publishes([
+            __DIR__ . '/Nova' => base_path('app/Nova/PurchaseOrder'),
+            __DIR__ . '/Providers/NovaServiceProvider.php' => app_path('Providers/NovaServiceProvider.php'),
+        ], 'pos-nova');
         // Do not auto-run vendor:publish during boot; leave publishable resources registered for manual publishing.
 
         $this->publishes([
             __DIR__ . '/config/purchaseorder.php' => config_path('purchaseorder.php'),
-            __DIR__ . '/database/migrations' => database_path('migrations'),
+            __DIR__ . '/database/migrations' => database_path('migrations/purchaseorder'),
             __DIR__ . '/database/factories' => database_path('factories'),
             __DIR__ . '/database/seeders' => database_path('seeders/PurchaseOrder'),
             __DIR__ . '/resources/lang' => resource_path('lang/vendor/purchase-order'),
