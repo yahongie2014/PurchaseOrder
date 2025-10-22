@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Nova\PurchaseOrder;
+namespace App\Nova;
 
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Code;
@@ -67,5 +67,4 @@ class SyncLog extends Resource
 
         return $user && $user->hasRole('admin');
     }
-
 }

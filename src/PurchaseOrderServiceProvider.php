@@ -64,7 +64,7 @@ class PurchaseOrderServiceProvider extends ServiceProvider
         ], 'pos-config');
 
         $this->publishes([
-            __DIR__ . '/database/seeders' => database_path('seeders/PurchaseOrder'),
+            __DIR__ . '/database/seeders' => database_path('seeders'),
         ], 'pos-seeders');
 
         $this->publishes([
@@ -103,11 +103,36 @@ class PurchaseOrderServiceProvider extends ServiceProvider
         ], 'pos-nova');
         // Do not auto-run vendor:publish during boot; leave publishable resources registered for manual publishing.
 
+        // If Spatie Permission is available, locate its package path and register
+        // its config and migrations so they can be published together with 'pos-all'.
+        if (class_exists(\Spatie\Permission\PermissionServiceProvider::class)) {
+            try {
+                $ref = new \ReflectionClass(\Spatie\Permission\PermissionServiceProvider::class);
+                $spatieBase = dirname($ref->getFileName(), 2); // vendor/spatie/laravel-permission
+
+                if (File::exists($spatieBase)) {
+                    $map = [];
+                    if (File::exists($spatieBase . '/config/permission.php')) {
+                        $map[$spatieBase . '/config/permission.php'] = config_path('permission.php');
+                    }
+                    if (File::exists($spatieBase . '/database/migrations')) {
+                        $map[$spatieBase . '/database/migrations'] = database_path('migrations');
+                    }
+
+                    if (!empty($map)) {
+                        $this->publishes($map, 'pos-all');
+                    }
+                }
+            } catch (\ReflectionException $e) {
+                // ignore; Spatie not available or reflection failed
+            }
+        }
+
         $this->publishes([
             __DIR__ . '/config/purchaseorder.php' => config_path('purchaseorder.php'),
-            __DIR__ . '/database/migrations' => database_path('migrations/purchaseorder'),
+            __DIR__ . '/database/migrations' => database_path('migrations'),
             __DIR__ . '/database/factories' => database_path('factories'),
-            __DIR__ . '/database/seeders' => database_path('seeders/PurchaseOrder'),
+            __DIR__ . '/database/seeders' => database_path('seeders'),
             __DIR__ . '/resources/lang' => resource_path('lang/vendor/purchase-order'),
             __DIR__ . '/Models' => app_path('Models/PurchaseOrder'),
             __DIR__ . '/Repositories' => app_path('Repositories/PurchaseOrder'),

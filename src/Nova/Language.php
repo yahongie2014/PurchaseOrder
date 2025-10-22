@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Nova\PurchaseOrder;
+namespace App\Nova;
 
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Select;
@@ -18,7 +18,9 @@ class Language extends Resource
     public static $title = 'name';
 
     public static $search = [
-        'id', 'code', 'name',
+        'id',
+        'code',
+        'name',
     ];
 
     public function fields(NovaRequest $request): array
@@ -97,5 +99,4 @@ class Language extends Resource
         $user = $request->user();
         return $user && $user->hasRole('admin');
     }
-
 }

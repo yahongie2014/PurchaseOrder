@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Nova\PurchaseOrder;
+namespace App\Nova;
 
 use Laravel\Nova\Fields\Image;
-use App\Nova\PurchaseOrder\Actions\ToggleActiveStatus;
-use App\Nova\PurchaseOrder\Filters\IsActiveFilter;
+use App\Nova\Actions\ToggleActiveStatus;
+use App\Nova\Filters\IsActiveFilter;
 use App\Nova\Repeaters\LanguageRepeate;
 use Laravel\Nova\Fields\Repeater;
 use Laravel\Nova\Fields\Select;

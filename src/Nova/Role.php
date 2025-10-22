@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Nova\PurchaseOrder;
+namespace App\Nova;
 
 use Illuminate\Http\Request;
 use Laravel\Nova\Resource;
@@ -18,7 +18,8 @@ class Role extends Resource
     public static $title = 'name';
 
     public static $search = [
-        'id', 'name'
+        'id',
+        'name'
     ];
 
     public function fields(Request $request)

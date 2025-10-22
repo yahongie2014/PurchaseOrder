@@ -28,6 +28,14 @@ class InstallPurchaseOrder extends Command
             $this->warn('Sanctum not installed or publish failed: ' . $e->getMessage());
         }
 
+        $this->info('Publishing Spatie Permission assets (if installed)...');
+        try {
+            Artisan::call('vendor:publish', ['--provider' => 'Spatie\\Permission\\PermissionServiceProvider']);
+            $this->info(trim(Artisan::output()));
+        } catch (\Exception $e) {
+            $this->warn('Spatie Permission not installed or publish failed: ' . $e->getMessage());
+        }
+
         $this->info('Make sure to run migrations: php artisan migrate');
 
         return 0;

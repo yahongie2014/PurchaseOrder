@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Nova\PurchaseOrder;
+namespace App\Nova;
 
 use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\Select;

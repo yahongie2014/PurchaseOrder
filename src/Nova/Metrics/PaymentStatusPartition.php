@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Nova\PurchaseOrder\Metrics;
+namespace App\Nova\Metrics;
 
 use App\Models\PurchaseOrder\Order;
 use DateTimeInterface;

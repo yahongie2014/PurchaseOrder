@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Nova\PurchaseOrder;
+namespace App\Nova;
 
 use App\Nova\PurchaseOrder\Actions\MarkAsPaid;
 use App\Nova\PurchaseOrder\Actions\MarkAsPartial;

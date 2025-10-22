@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Nova\PurchaseOrder\Filters;
+namespace App\Nova\Filters;
 
 use Illuminate\Contracts\Database\Eloquent\Builder;
 use Laravel\Nova\Filters\Filter;

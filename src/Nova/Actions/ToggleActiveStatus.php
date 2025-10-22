@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Nova\PurchaseOrder\Actions;
+namespace App\Nova\Actions;
 
 use Illuminate\Support\Collection;
 use Laravel\Nova\Actions\Action;

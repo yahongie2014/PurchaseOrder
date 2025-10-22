@@ -1,6 +1,6 @@
 {
   "name": "yahongie2014/purchase-order",
-  "version": "2.2",
+  "version": "2.3",
   "description": "ecommerce live system with interactive redis connection",
   "type": "library",
   "license": "MIT",
@@ -36,5 +36,8 @@
     }
   },
   "minimum-stability": "dev",
-  "prefer-stable": true
+  "prefer-stable": true,
+  "require-dev": {
+    "phpunit/phpunit": "^9"
+  }
 }

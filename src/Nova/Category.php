@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Nova\PurchaseOrder;
+namespace App\Nova;
 
 use App\Nova\Repeaters\LanguageRepeate;
 use Laravel\Nova\Fields\Repeater;

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Nova\PurchaseOrder\Actions;
+namespace App\Nova\Actions;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;

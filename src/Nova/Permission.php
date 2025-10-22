@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Nova\PurchaseOrder;
+namespace App\Nova;
 
 use Illuminate\Http\Request;
 use Laravel\Nova\Resource;
@@ -10,6 +10,7 @@ use Laravel\Nova\Fields\BelongsToMany;
 use Spatie\Permission\Models\Permission as PermissionModel;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use App\Nova\User;
+use Illuminate\Support\Facades\Schema;
 
 class Permission extends Resource
 {
@@ -18,7 +19,8 @@ class Permission extends Resource
     public static $title = 'name';
 
     public static $search = [
-        'id', 'name'
+        'id',
+        'name'
     ];
 
     public function fields(NovaRequest $request)
@@ -38,6 +40,11 @@ class Permission extends Resource
     // Must be static and accept Illuminate\Http\Request
     public static function authorizedToViewAny(Request $request)
     {
+        // If Spatie Permission tables haven't been migrated yet, avoid querying them.
+        if (!Schema::hasTable('permissions')) {
+            return false;
+        }
+
         $user = $request->user();
 
         return $user && $user->hasRole('admin');
@@ -46,6 +53,10 @@ class Permission extends Resource
     // Instance method, no static, accepts Illuminate\Http\Request
     public function authorizedToView(Request $request)
     {
+        if (!Schema::hasTable('permissions')) {
+            return false;
+        }
+
         $user = $request->user();
 
         return $user && $user->hasRole('admin');
@@ -53,6 +64,10 @@ class Permission extends Resource
 
     public function authorizedToUpdate(Request $request)
     {
+        if (!Schema::hasTable('permissions')) {
+            return false;
+        }
+
         $user = $request->user();
 
         return $user && $user->hasRole('admin');
@@ -60,6 +75,10 @@ class Permission extends Resource
 
     public function authorizedToDelete(Request $request)
     {
+        if (!Schema::hasTable('permissions')) {
+            return false;
+        }
+
         $user = $request->user();
 
         return $user && $user->hasRole('admin');
@@ -68,9 +87,12 @@ class Permission extends Resource
     // Optionally restrict navigation
     public static function availableForNavigation(Request $request)
     {
+        if (!Schema::hasTable('permissions')) {
+            return false;
+        }
+
         $user = $request->user();
 
         return $user && $user->hasRole('admin');
     }
-
 }
