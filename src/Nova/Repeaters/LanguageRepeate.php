@@ -32,4 +32,37 @@ class LanguageRepeate extends Repeatable
                 ->hideFromIndex(),
         ];
     }
+
+    /**
+     * Get the default value for the repeatable.
+     *
+     * @return array
+     */
+    public function defaultValue(): array
+    {
+        return [
+            ['locale' => 'en', 'name' => '', 'description' => ''],
+            ['locale' => 'ar', 'name' => '', 'description' => ''],
+        ];
+    }
+
+    /**
+     * Get the maximum number of rows.
+     *
+     * @return int
+     */
+    public function maxRows(): int
+    {
+        return 2;
+    }
+
+    /**
+     * Get the minimum number of rows.
+     *
+     * @return int
+     */
+    public function minRows(): int
+    {
+        return 2;
+    }
 }

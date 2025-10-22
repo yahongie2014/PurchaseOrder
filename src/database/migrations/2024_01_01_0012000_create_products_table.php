@@ -34,11 +34,21 @@ return new class extends Migration {
             $table->timestamp('synced_at')->nullable();
             $table->boolean('is_active')->default(true);
             $table->timestamps();
+            $table->softDeletes();
+        });
+
+        Schema::create('category_product', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('category_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('product_id')->constrained()->cascadeOnDelete();
+            $table->unique(['category_id', 'product_id']);
+            $table->timestamps();
         });
     }
 
     public function down(): void
     {
         Schema::dropIfExists('products');
+        Schema::dropIfExists('category_product');
     }
 };

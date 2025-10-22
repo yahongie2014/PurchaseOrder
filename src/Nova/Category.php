@@ -2,52 +2,77 @@
 
 namespace App\Nova;
 
-use App\Nova\Repeaters\LanguageRepeate;
-use Laravel\Nova\Fields\Repeater;
 use Laravel\Nova\Resource;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Slug;
 use Laravel\Nova\Fields\Boolean;
-use Laravel\Nova\Fields\Image;
+use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Http\Requests\NovaRequest;
-use Illuminate\Support\Str;
+use Outl1ne\NovaTranslatable\HandlesTranslatable;
 
 class Category extends Resource
 {
+    use HandlesTranslatable;
+
     public static $model = \App\Models\PurchaseOrder\Category::class;
 
-    public static $title = 'slug';
+    public static $title = 'name';
 
-    public static $search = ['id', 'slug'];
+
+    public static $search = [
+        'slug',
+        'name',
+    ];
+
+    public static function getTranslatableLocales(): array
+    {
+        return [
+            'en' => 'English',
+            'ar' => 'Arabic',
+        ];
+    }
+
+    public static function label()
+    {
+        return __('Categories');
+    }
+
+    public static function singularLabel()
+    {
+        return __('Category');
+    }
 
     public function fields(NovaRequest $request)
     {
         return [
             ID::make()->sortable(),
 
-            Image::make('Cover Image', 'cover_img')
-                ->disk('public')
-                ->path('categories')
-                ->creationRules('required', 'image', 'max:2048')
-                ->updateRules('nullable', 'image', 'max:2048'),
+            Text::make(__('Name'), 'name')
+                ->translatable()
+                ->rules('required', 'min:2')
+                ->sortable(),
+            Slug::make(__('Slug'), 'slug')
+                ->from('name')
+                ->separator('-')
+                ->rules('required')
+                ->sortable(),
 
-            Repeater::make('Translation')
-                ->repeatables([
-                    LanguageRepeate::make(),
-                ])->showOnDetail(),
-            Text::make('Slug')
-                ->sortable()
-                ->rules('required', 'max:255')
-                ->creationRules('unique:categories,slug')
-                ->fillUsing(function ($request, $model, $attribute, $requestAttribute) {
-                    if ($request->input($requestAttribute)) {
-                        $model->{$attribute} = $request->input($requestAttribute);
-                    } elseif ($request->isCreateOrAttachRequest()) {
-                        $model->{$attribute} = 'CAT-' . strtoupper(Str::random(8));
-                    }
-                }),
+            BelongsTo::make(__('Parent'), 'parent', self::class)->nullable(),
 
-            Boolean::make('Is Active'),
+            Boolean::make(__('Active'), 'is_active'),
         ];
+    }
+
+    public function filters(NovaRequest $request)
+    {
+        return [
+            new \App\Nova\Filters\IsActiveFilter(),
+        ];
+    }
+
+    public function actions(NovaRequest $request)
+    {
+        return [];
     }
 }

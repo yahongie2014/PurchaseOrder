@@ -2,6 +2,8 @@
 
 namespace App\Models\PurchaseOrder;
 
+use App\Models\PurchaseOrder\Category;
+use App\Models\PurchaseOrder\Concerns\Auditable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Facades\Storage;
@@ -9,23 +11,42 @@ use PurchaseOrder\Events\ProductUpdated;
 use PurchaseOrder\Services\CurrencyConverter;
 use Spatie\Translatable\HasTranslations;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Product extends Model
 {
-    use HasTranslations, HasFactory;
+    use SoftDeletes, Auditable, HasFactory, HasTranslations;
 
     protected $table = 'products';
+
+    public $translatable = ['translation', 'description'];
 
     protected $dispatchesEvents = [
         'updated' => ProductUpdated::class,
     ];
 
     protected $fillable = [
-        'sku', 'barcode', 'original_price', 'cost_price', 'sale_price', 'is_sale',
-        'stock_quantity', 'tax_rate', 'is_taxable', 'unit',
-        'weight', 'length', 'width', 'height',
-        'brand_id', 'cover_img', 'tags', 'category_id', 'currency_code',
-        'synced_at', 'is_active', 'description'
+        'sku',
+        'barcode',
+        'original_price',
+        'cost_price',
+        'sale_price',
+        'is_sale',
+        'stock_quantity',
+        'tax_rate',
+        'is_taxable',
+        'unit',
+        'weight',
+        'length',
+        'width',
+        'height',
+        'brand_id',
+        'cover_img',
+        'tags',
+        'currency_code',
+        'synced_at',
+        'is_active',
+        'description'
     ];
 
     protected $casts = [
@@ -39,6 +60,7 @@ class Product extends Model
         'is_sale' => 'boolean',
         'is_taxable' => 'boolean',
         'translation' => 'array',
+        'description' => 'array',
         'is_active' => 'boolean',
     ];
 
@@ -47,10 +69,17 @@ class Product extends Model
         return \Database\Factories\ProductFactory::new();
     }
 
-    public function category()
+    public function scopeActive($query)
     {
-        return $this->belongsTo(Category::class);
+        return $query->where('is_active', true);
     }
+
+    public function categories(): BelongsToMany
+    {
+        return $this->belongsToMany(Category::class, 'category_product')
+            ->withTimestamps();
+    }
+
 
     public function brand()
     {

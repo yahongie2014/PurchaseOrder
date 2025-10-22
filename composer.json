@@ -21,7 +21,8 @@
     "php": ">=7.4 <8.5",
     "spatie/laravel-translatable": "^6.0",
     "spatie/laravel-permission": "^6.18",
-    "laravel/sanctum": "^2.15 || ^3.0 || ^4.0"
+    "laravel/sanctum": "^2.15 || ^3.0 || ^4.0",
+    "outl1ne/nova-translatable": "^3.0"
   },
   "autoload": {
     "psr-4": {

@@ -5,8 +5,6 @@ namespace App\Nova;
 use Laravel\Nova\Fields\Image;
 use App\Nova\Actions\ToggleActiveStatus;
 use App\Nova\Filters\IsActiveFilter;
-use App\Nova\Repeaters\LanguageRepeate;
-use Laravel\Nova\Fields\Repeater;
 use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Resource;
 use Laravel\Nova\Fields\ID;
@@ -20,14 +18,24 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Laravel\Nova\Panel;
 use Laravel\Nova\Fields\Trix;
+use Laravel\Nova\Fields\Badge;
+use Outl1ne\NovaTranslatable\HandlesTranslatable;
 
 class Product extends Resource
 {
-    public static $model = \App\Models\PurchaseOrder\Product::class;
+    use HandlesTranslatable;
 
-    public static $title = 'sku';
+    public static string $model = \App\Models\PurchaseOrder\Product::class;
+    public static $title = 'name';
+    public static $search = ['name', 'slug', 'barcode'];
 
-    public static $search = ['id', 'sku', 'barcode'];
+    public static function getTranslatableLocales(): array
+    {
+        return [
+            'en' => 'English',
+            'ar' => 'Arabic',
+        ];
+    }
 
     public function fields(NovaRequest $request)
     {
@@ -48,10 +56,15 @@ class Product extends Resource
             Text::make('Name', function () {
                 return $this->name ?? $this->getNameAttribute();
             })->onlyOnIndex(),
-            Repeater::make('Translation')
-                ->repeatables([
-                    LanguageRepeate::make(),
-                ])->showOnDetail(),
+            new Panel(__('Details & Translations'), [
+                Text::make(__('Name'), 'name')
+                    ->translatable()
+                    ->rules('required', 'string', 'max:255'),
+                Trix::make(__('Description'), 'description')
+                    ->translatable()
+                    ->rules('nullable', 'string'),
+            ]),
+
             Panel::make('Pricing', [
                 Number::make('Original Price')->step(0.01)->hideFromIndex(),
                 Number::make('Cost Price')->step(0.01)->hideFromIndex(),
@@ -86,8 +99,6 @@ class Product extends Resource
                     return $this->cover_img_url ? $this->cover_img_url : null;
                 }),
 
-            Trix::make('Description')->alwaysShow()->nullable(),
-
             Panel::make('Dimensions', [
                 Number::make('Weight')->step(0.01),
                 Number::make('Length')->step(0.01),
@@ -99,7 +110,16 @@ class Product extends Resource
             BelongsTo::make('Category'),
             HasMany::make('Images', 'images', ProductImage::class),
             HasMany::make('Order Items', 'orderItems', OrderItem::class),
-            Boolean::make('Is Active'),
+            Badge::make(__('Status'), 'is_active')
+                ->map([
+                    1 => 'success',
+                    0 => 'danger',
+                ])
+                ->labels([
+                    1 => __('Active'),
+                    0 => __('Inactive'),
+                ])
+                ->sortable(),
         ];
     }
 
