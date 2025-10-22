@@ -133,12 +133,13 @@ class PurchaseOrderServiceProvider extends ServiceProvider
             __DIR__ . '/database/migrations' => database_path('migrations'),
             __DIR__ . '/database/factories' => database_path('factories'),
             __DIR__ . '/database/seeders' => database_path('seeders'),
+            __DIR__ . '/database/seeders/DatabaseSeeder.php' => database_path('seeders/DatabaseSeeder.php'),
             __DIR__ . '/resources/lang' => resource_path('lang/vendor/purchase-order'),
             __DIR__ . '/Models' => app_path('Models/PurchaseOrder'),
             __DIR__ . '/Repositories' => app_path('Repositories/PurchaseOrder'),
             __DIR__ . '/Policies' => app_path('Policies'),
             __DIR__ . '/Http/Resources' => app_path('Http/Resources/PurchaseOrder'),
-        ], 'pos-all');
+        ], ['pos-all' => ['force' => true]]);
 
         // Allow publishing Repositories folder independently
         $this->publishes([

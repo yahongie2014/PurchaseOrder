@@ -2,12 +2,12 @@
 
 namespace App\Nova;
 
-use App\Nova\PurchaseOrder\Actions\MarkAsPaid;
-use App\Nova\PurchaseOrder\Actions\MarkAsPartial;
-use App\Nova\PurchaseOrder\Actions\MarkAsPending;
-use App\Nova\PurchaseOrder\Filters\PaymentStatusFilter;
-use App\Nova\PurchaseOrder\Metrics\OrdersPerDay;
-use App\Nova\PurchaseOrder\Metrics\PaymentStatusPartition;
+use App\Nova\Actions\MarkAsPaid;
+use App\Nova\Actions\MarkAsPartial;
+use App\Nova\Actions\MarkAsPending;
+use App\Nova\Filters\PaymentStatusFilter;
+use App\Nova\Metrics\OrdersPerDay;
+use App\Nova\Metrics\PaymentStatusPartition;
 use Laravel\Nova\Resource;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;

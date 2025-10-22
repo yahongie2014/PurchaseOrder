@@ -2,6 +2,7 @@
 
 namespace App\Models\PurchaseOrder;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -12,7 +13,10 @@ class Cashier extends Model
     protected $table = 'cashiers';
 
     protected $fillable = [
-        'name', 'user_id', 'is_active', 'last_login_at'
+        'name',
+        'user_id',
+        'is_active',
+        'last_login_at'
     ];
 
     protected $casts = [
