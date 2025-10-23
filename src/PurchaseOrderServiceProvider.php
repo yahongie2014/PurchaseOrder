@@ -139,7 +139,7 @@ class PurchaseOrderServiceProvider extends ServiceProvider
             __DIR__ . '/Repositories' => app_path('Repositories/PurchaseOrder'),
             __DIR__ . '/Policies' => app_path('Policies'),
             __DIR__ . '/Http/Resources' => app_path('Http/Resources/PurchaseOrder'),
-        ], ['pos-all' => ['force' => true]]);
+        ], 'pos-all');
 
         // Allow publishing Repositories folder independently
         $this->publishes([
