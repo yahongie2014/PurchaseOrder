@@ -6,6 +6,7 @@ use App\Models\PurchaseOrder\Category;
 use App\Models\PurchaseOrder\Concerns\Auditable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Support\Facades\Storage;
 use PurchaseOrder\Events\ProductUpdated;
 use PurchaseOrder\Services\CurrencyConverter;
@@ -28,6 +29,7 @@ class Product extends Model
     protected $fillable = [
         'sku',
         'barcode',
+        'name',
         'original_price',
         'cost_price',
         'sale_price',

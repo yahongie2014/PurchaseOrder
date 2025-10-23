@@ -1,6 +1,6 @@
 {
   "name": "yahongie2014/purchase-order",
-  "version": "2.4",
+  "version": "2.5",
   "description": "ecommerce live system with interactive redis connection",
   "type": "library",
   "license": "MIT",

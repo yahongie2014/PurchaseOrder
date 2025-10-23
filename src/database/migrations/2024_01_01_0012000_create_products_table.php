@@ -12,6 +12,8 @@ return new class extends Migration {
             // Unique Identifiers
             $table->string('sku')->unique();
             $table->json('translation')->nullable();
+            $table->json('name')->nullable();
+            $table->json('description')->nullable();
             $table->string('barcode')->nullable();
             $table->decimal('original_price', 10, 2);
             $table->decimal('cost_price', 10, 2)->nullable();
@@ -48,7 +50,7 @@ return new class extends Migration {
 
     public function down(): void
     {
-        Schema::dropIfExists('products');
         Schema::dropIfExists('category_product');
+        Schema::dropIfExists('products');
     }
 };

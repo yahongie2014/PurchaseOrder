@@ -2,6 +2,7 @@
 
 namespace App\Nova;
 
+use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\Image;
 use App\Nova\Actions\ToggleActiveStatus;
 use App\Nova\Filters\IsActiveFilter;
@@ -53,9 +54,6 @@ class Product extends Resource
                         $model->{$attribute} = 'PROD-' . strtoupper(Str::random(8));
                     }
                 }),
-            Text::make('Name', function () {
-                return $this->name ?? $this->getNameAttribute();
-            })->onlyOnIndex(),
             new Panel(__('Details & Translations'), [
                 Text::make(__('Name'), 'name')
                     ->translatable()
@@ -107,7 +105,7 @@ class Product extends Resource
             ]),
 
             BelongsTo::make('Brand'),
-            BelongsTo::make('Category'),
+            BelongsToMany::make('Category', 'categories', \App\Nova\Category::class),
             HasMany::make('Images', 'images', ProductImage::class),
             HasMany::make('Order Items', 'orderItems', OrderItem::class),
             Badge::make(__('Status'), 'is_active')
