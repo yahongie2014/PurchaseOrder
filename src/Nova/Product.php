@@ -43,7 +43,7 @@ class Product extends Resource
 
         return [
             ID::make()->sortable(),
-            Text::make('SKU')
+            Text::make(__('SKU'), 'sku')
                 ->sortable()
                 ->rules('required', 'max:255')
                 ->creationRules('unique:products,sku')
@@ -64,17 +64,34 @@ class Product extends Resource
             ]),
 
             Panel::make('Pricing', [
-                Number::make('Original Price')->step(0.01)->hideFromIndex(),
-                Number::make('Cost Price')->step(0.01)->hideFromIndex(),
-                Number::make('Sale Price')->step(0.01),
-                Boolean::make('Is Sale'),
+                Number::make(__('Original Price'), 'original_price')->step(0.01)->hideFromIndex(),
+                Number::make(__('Cost Price'), 'cost_price')->step(0.01)->hideFromIndex(),
+                Boolean::make(__('Have Sale'), 'is_sale')->hideFromIndex(),
+                Number::make(__('Sale Price'), 'sale_price')
+                    ->step(0.01)
+                    ->dependsOn('is_sale', function ($field, $request, $formData) {
+                        if ($formData->is_sale) {
+                            $field->show()->rules('required', 'numeric', 'min:0');
+                        } else {
+                            $field->hide();
+                        }
+                    }),
             ]),
 
-            Panel::make('Inventory', [
-                Number::make('Stock Quantity'),
-                Number::make('Tax Rate')->step(0.01),
-                Boolean::make('Is Taxable'),
-                Select::make('Unit')
+            Panel::make(__('Inventory'), [
+                Number::make(__('Stock Quantity'), 'stock_quantity'),
+
+                Boolean::make(__('Have Tax Rate'), 'is_taxable')->hideFromIndex(),
+                Number::make(__('Tax Rate'), 'tax_rate')
+                    ->step(0.01)
+                    ->dependsOn('is_taxable', function ($field, $request, $formData) {
+                        if ($formData->is_sale) {
+                            $field->show()->rules('required', 'numeric', 'min:0');
+                        } else {
+                            $field->hide();
+                        }
+                    }),
+                Select::make(__('Unit'), 'unit')
                     ->options([
                         'pcs' => 'Pieces',
                         'kg' => 'Kilograms',
@@ -86,7 +103,7 @@ class Product extends Resource
                     ->displayUsingLabels(),
             ]),
 
-            Image::make('Cover Image', 'cover_img_url')
+            Image::make(__('Cover Image'), 'cover_img')
                 ->disk('public')
                 ->path('product_covers')
                 ->creationRules('required', 'image', 'max:2048')
@@ -97,17 +114,17 @@ class Product extends Resource
                     return $this->cover_img_url ? $this->cover_img_url : null;
                 }),
 
-            Panel::make('Dimensions', [
-                Number::make('Weight')->step(0.01),
-                Number::make('Length')->step(0.01),
-                Number::make('Width')->step(0.01),
-                Number::make('Height')->step(0.01),
+            Panel::make(__('Dimensions'), [
+                Number::make(__('Weight'), 'weight')->step(0.01),
+                Number::make(__('Length'), 'length')->step(0.01),
+                Number::make(__('Width'), 'width')->step(0.01),
+                Number::make(__('Height'), 'height')->step(0.01),
             ]),
 
-            BelongsTo::make('Brand'),
-            BelongsToMany::make('Category', 'categories', \App\Nova\Category::class),
-            HasMany::make('Images', 'images', ProductImage::class),
-            HasMany::make('Order Items', 'orderItems', OrderItem::class),
+            BelongsTo::make(__('Brand'), 'brand', Brand::class),
+            BelongsToMany::make(__('Category'), 'categories', \App\Nova\Category::class),
+            HasMany::make(__('Images'), 'images', ProductImage::class),
+            HasMany::make(__('Order Items'), 'orderItems', OrderItem::class),
             Badge::make(__('Status'), 'is_active')
                 ->map([
                     1 => 'success',

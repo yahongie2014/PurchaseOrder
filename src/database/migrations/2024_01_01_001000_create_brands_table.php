@@ -11,6 +11,7 @@ return new class extends Migration {
             $table->id();
             $table->string('slug')->unique();
             $table->string('logo')->nullable();
+            $table->string('name')->index()->nullable();
             $table->json('translation')->nullable();
             $table->boolean('is_active')->default(true);
             $table->timestamps();

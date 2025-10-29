@@ -25,14 +25,6 @@ class Category extends Resource
         'name',
     ];
 
-    public static function getTranslatableLocales(): array
-    {
-        return [
-            'en' => 'English',
-            'ar' => 'Arabic',
-        ];
-    }
-
     public static function label()
     {
         return __('Categories');
@@ -47,8 +39,8 @@ class Category extends Resource
     {
         return [
             ID::make()->sortable(),
-
-            Text::make(__('Name'), 'name')
+            Text::make(__('Name'), 'name'),
+            Text::make(__('Translation'), 'translation')
                 ->translatable()
                 ->rules('required', 'min:2')
                 ->sortable(),
